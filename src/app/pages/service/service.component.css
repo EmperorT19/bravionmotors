@@ -30,46 +30,70 @@
   align-items: start;
 }
 
-/* Stats Panel */
+/* Garage Info Card */
 .stats-panel {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
 }
 
-.stat-item {
+.garage-info-card {
+  background-color: #0c0c0c;
+  border: 1px solid #161616;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
-.stat-num-wrapper {
-  display: flex;
-  align-items: baseline;
-}
-
-.stat-number {
+.garage-title {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: 1.8rem;
   font-weight: 800;
-  line-height: 0.75;
-  letter-spacing: -0.05em;
-}
-
-.stat-suffix {
-  font-family: var(--font-mono);
-  font-size: clamp(1rem, 2.5vw, 2.5rem);
-  color: #666666;
-  margin-left: 0.5rem;
-  font-weight: 500;
-}
-
-.stat-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  color: #888888;
-  margin-top: 1.2rem;
+  letter-spacing: -0.03em;
+  color: var(--text);
   text-transform: uppercase;
+}
+
+.garage-desc {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #888888;
+}
+
+.garage-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.g-spec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border-bottom: 1px solid #141414;
+  padding-bottom: 0.8rem;
+}
+
+.g-spec:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.g-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #666666;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.g-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.4;
 }
 
 /* Disciplines Panel */
