@@ -10,6 +10,8 @@ import { AnimateDirective } from '../../directives/animate-on-scroll.directive';
   styleUrls: ['./yard.component.css']
 })
 export class YardComponent {
+  selectedFilter = 'All';
+
   // Configurator states for car colors
   activeFinishes: { [key: string]: string } = {
     'SUBARU STI': 'RAW SILV',
@@ -19,18 +21,28 @@ export class YardComponent {
     'AMG C63': 'RAW SILV',
     'FORESTER XT': 'RAW SILV',
     'PRADO TXL': 'RAW SILV',
-    'NISSAN GTR': 'RAW SILV'
+    'NISSAN GTR': 'RAW SILV',
+    'TOYOTA VITZ': 'RAW SILV',
+    'NISSAN NOTE': 'RAW SILV',
+    'SUBARU PLEO': 'RAW SILV',
+    'TOYOTA BELTA': 'RAW SILV'
   };
 
   selectFinish(carName: string, finish: string) {
     this.activeFinishes[carName] = finish;
   }
 
-  // 8 Real Car Listings
+  setFilter(filterName: string) {
+    this.selectedFilter = filterName;
+  }
+
+  // 12 Real Car Listings
   cars = [
     {
       id: '01',
       name: 'SUBARU STI',
+      brand: 'subaru',
+      priceVal: 3900000,
       fullName: 'Subaru Impreza WRX STI',
       year: '2018',
       mileage: '54,000 KM',
@@ -44,6 +56,8 @@ export class YardComponent {
     {
       id: '02',
       name: 'LANDCRUISER ZX',
+      brand: 'toyota',
+      priceVal: 13800000,
       fullName: 'Toyota Land Cruiser V8 (ZX)',
       year: '2017',
       mileage: '78,000 KM',
@@ -57,6 +71,8 @@ export class YardComponent {
     {
       id: '03',
       name: 'LANCER EVO',
+      brand: 'mitsubishi',
+      priceVal: 4200000,
       fullName: 'Mitsubishi Lancer Evolution X',
       year: '2015',
       mileage: '68,000 KM',
@@ -70,6 +86,8 @@ export class YardComponent {
     {
       id: '04',
       name: 'BMW M3',
+      brand: 'bmw',
+      priceVal: 8700000,
       fullName: 'BMW M3 Sedan (F80)',
       year: '2018',
       mileage: '42,000 KM',
@@ -83,6 +101,8 @@ export class YardComponent {
     {
       id: '05',
       name: 'AMG C63',
+      brand: 'mercedes',
+      priceVal: 9200000,
       fullName: 'Mercedes-Benz C63 AMG S',
       year: '2016',
       mileage: '49,000 KM',
@@ -96,6 +116,8 @@ export class YardComponent {
     {
       id: '06',
       name: 'FORESTER XT',
+      brand: 'subaru',
+      priceVal: 2850000,
       fullName: 'Subaru Forester (XT)',
       year: '2017',
       mileage: '82,000 KM',
@@ -109,6 +131,8 @@ export class YardComponent {
     {
       id: '07',
       name: 'PRADO TXL',
+      brand: 'toyota',
+      priceVal: 7400000,
       fullName: 'Toyota Land Cruiser Prado TX-L',
       year: '2018',
       mileage: '61,000 KM',
@@ -122,6 +146,8 @@ export class YardComponent {
     {
       id: '08',
       name: 'NISSAN GTR',
+      brand: 'nissan',
+      priceVal: 14500000,
       fullName: 'Nissan GT-R Premium Edition',
       year: '2016',
       mileage: '31,000 KM',
@@ -131,6 +157,84 @@ export class YardComponent {
       drivetrain: 'Attesa E-TS AWD',
       img: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
       desc: 'All-wheel drive. Attesa E-TS system. Bilstein Damptronic shocks. Hand-built engine. Serious speed.'
+    },
+    {
+      id: '09',
+      name: 'TOYOTA VITZ',
+      brand: 'toyota',
+      priceVal: 850000,
+      fullName: 'Toyota Vitz Hatchback',
+      year: '2014',
+      mileage: '92,000 KM',
+      price: '850,000 KES',
+      engine: '1.3L 4-Cylinder',
+      transmission: 'Automatic',
+      drivetrain: 'FWD',
+      img: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800',
+      desc: 'Compact city hatch. Highly fuel-efficient, easy to park, and extremely reliable on fuel-guzzler routes.'
+    },
+    {
+      id: '10',
+      name: 'NISSAN NOTE',
+      brand: 'nissan',
+      priceVal: 780000,
+      fullName: 'Nissan Note DIG-S',
+      year: '2013',
+      mileage: '110,000 KM',
+      price: '780,000 KES',
+      engine: '1.2L Supercharged',
+      transmission: 'CVT',
+      drivetrain: 'FWD',
+      img: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
+      desc: 'Supercharged daily runner. Surprisingly spacious cabin with smart mirror and collision detection features.'
+    },
+    {
+      id: '11',
+      name: 'SUBARU PLEO',
+      brand: 'subaru',
+      priceVal: 450000,
+      fullName: 'Subaru Pleo Plus',
+      year: '2012',
+      mileage: '125,000 KM',
+      price: '450,000 KES',
+      engine: '660cc Inline-4',
+      transmission: 'CVT',
+      drivetrain: 'FWD',
+      img: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800',
+      desc: 'Kei car efficiency. Ideal for narrow city streets, running errands, and absolute minimal running costs.'
+    },
+    {
+      id: '12',
+      name: 'TOYOTA BELTA',
+      brand: 'toyota',
+      priceVal: 480000,
+      fullName: 'Toyota Belta Sedan',
+      year: '2011',
+      mileage: '140,000 KM',
+      price: '480,000 KES',
+      engine: '1.0L 3-Cylinder',
+      transmission: 'Automatic',
+      drivetrain: 'FWD',
+      img: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800',
+      desc: 'Reliable compact sedan. Generous boot space, soft suspension, and spare parts available in any corner of Kenya.'
     }
   ];
+
+  get filteredCars() {
+    if (this.selectedFilter === 'All') {
+      return this.cars;
+    }
+
+    const filter = this.selectedFilter.toLowerCase();
+
+    if (filter === 'under 1m') {
+      return this.cars.filter(car => car.priceVal < 1000000);
+    }
+
+    if (filter === 'under 500k') {
+      return this.cars.filter(car => car.priceVal < 500000);
+    }
+
+    return this.cars.filter(car => car.brand === filter);
+  }
 }

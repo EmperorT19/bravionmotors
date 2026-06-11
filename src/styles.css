@@ -168,3 +168,8 @@ html, body {
   background: var(--accent);
   border-color: var(--accent);
 }
+
+/* Global Image Brightness and Contrast Fix */
+img {
+  filter: brightness(1.15) contrast(1.05);
+}

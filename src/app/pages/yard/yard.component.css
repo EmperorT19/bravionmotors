@@ -5,7 +5,7 @@
 }
 
 .yard-hero {
-  margin-bottom: 8vh;
+  margin-bottom: 5vh;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -51,6 +51,99 @@
   stroke-dashoffset: 0;
 }
 
+/* Filter Controls */
+.filter-controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6vh;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #161616;
+  padding-bottom: 2rem;
+}
+
+.filter-scroll-wrapper {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none; /* Hide standard Firefox scrollbar */
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Hide Webkit scrollbars */
+}
+
+.filter-pill-btn {
+  background-color: #0c0c0c;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.filter-pill-btn.active {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-color: #ff0000;
+}
+
+.filter-pill-btn:hover:not(.active) {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.filter-counter {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #666666;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* No Results Panel */
+.no-results-message {
+  text-align: center;
+  padding: 10vh 2vw;
+  border: 1px dashed #222222;
+  background-color: #0c0c0c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.no-results-icon {
+  font-size: 3rem;
+}
+
+.no-results-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.no-results-desc {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: #666666;
+  margin-bottom: 1rem;
+}
+
+.reset-btn {
+  max-width: 250px;
+}
+
+/* Inventory Grid */
 .inventory-section {
   width: 100%;
 }
@@ -73,11 +166,26 @@
   overflow: hidden;
 }
 
-/* Car cards lift on hover with red glow underneath */
+/* Smooth fade-in and scale on card filtering */
+.filtered-card-item {
+  animation: cardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .car-card:hover {
   transform: translateY(-10px);
   border-color: #ff0000;
-  box-shadow: 0 15px 80px rgba(229, 0, 0, 0.35); /* Red glow/bloom */
+  box-shadow: 0 15px 80px rgba(229, 0, 0, 0.35);
 }
 
 .car-visual-wrapper {
@@ -89,27 +197,17 @@
   height: 240px;
 }
 
+/* Car listing images: brightness(1.2) saturation boost */
 .car-inventory-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.35) contrast(1.1);
-  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .car-card:hover .car-inventory-img {
-  filter: brightness(0.5) contrast(1.1);
-}
-
-.car-svg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
+  transform: scale(1.03);
 }
 
 .card-paint-code {
@@ -118,10 +216,13 @@
   right: 1.2rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #888888;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 0.2rem 0.6rem;
   letter-spacing: 0.15em;
   font-weight: 700;
   z-index: 3;
+  border: 1px solid #222;
 }
 
 .car-card-body {
@@ -299,5 +400,15 @@
 @media (max-width: 768px) {
   .yard-page {
     padding: 14vh 6vw 8vh 6vw;
+  }
+  
+  .filter-controls-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .filter-scroll-wrapper {
+    width: 100%;
   }
 }

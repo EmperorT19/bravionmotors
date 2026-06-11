@@ -1,0 +1,133 @@
+<div class="contact-page viewport-section grid-bg">
+  
+  <header class="contact-hero">
+    <div class="underline-wrapper" appAnimate="reveal-left">
+      <span class="section-label">04 / GET IN TOUCH</span>
+      <svg class="underline-svg" viewBox="0 0 100 10">
+        <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+      </svg>
+    </div>
+    <h1 class="huge-text" appAnimate="reveal-right">CONTACT US</h1>
+    <p class="contact-intro-desc" appAnimate="reveal-up">
+      Have questions about a unit or need workshop space? Submit details below. We reply within hours.
+    </p>
+  </header>
+
+  <div class="contact-split-layout">
+    
+    <!-- LEFT COLUMN: Form -->
+    <div class="form-container" appAnimate="reveal-left">
+      <div class="brutalist-form-box">
+        <h2 class="form-title">ENQUIRY FORM</h2>
+        
+        @if (submitted) {
+          <div class="success-message">
+            <span class="success-icon">✓</span>
+            <div class="success-text">
+              <strong>Enquiry Received.</strong>
+              <p>Our team will contact you shortly.</p>
+            </div>
+          </div>
+        } @else {
+          <form (ngSubmit)="submitEnquiry()" #enquiryForm="ngForm" class="contact-form">
+            <div class="form-group">
+              <label for="fullName">FULL NAME</label>
+              <input type="text" id="fullName" name="fullName" [(ngModel)]="formData.fullName" required placeholder="e.g. John Omondi" class="brutalist-input">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">PHONE NUMBER (KENYAN FORMAT)</label>
+              <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required placeholder="e.g. 0712 345 678" class="brutalist-input">
+            </div>
+
+            <div class="form-group">
+              <label for="email">EMAIL ADDRESS (OPTIONAL)</label>
+              <input type="email" id="email" name="email" [(ngModel)]="formData.email" placeholder="e.g. john@example.com" class="brutalist-input">
+            </div>
+
+            <div class="form-group">
+              <label for="service">SERVICE NEEDED</label>
+              <select id="service" name="service" [(ngModel)]="formData.service" class="brutalist-select">
+                <option value="Car Purchase">Car Purchase</option>
+                <option value="Servicing">Servicing / Garage</option>
+                <option value="Parts Inquiry">Parts Inquiry</option>
+                <option value="General">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="carModel">CAR MAKE & MODEL</label>
+              <input type="text" id="carModel" name="carModel" [(ngModel)]="formData.carModel" placeholder="e.g. Subaru WRX STI" class="brutalist-input">
+            </div>
+
+            <div class="form-group">
+              <label for="datetime">PREFERRED DATE & TIME</label>
+              <input type="datetime-local" id="datetime" name="datetime" [(ngModel)]="formData.datetime" class="brutalist-input">
+            </div>
+
+            <div class="form-group">
+              <label for="message">MESSAGE / NOTES</label>
+              <textarea id="message" name="message" [(ngModel)]="formData.message" rows="4" placeholder="Describe your request..." class="brutalist-textarea"></textarea>
+            </div>
+
+            <button type="submit" class="brutalist-btn submit-btn">SEND ENQUIRY</button>
+          </form>
+        }
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Details & Map -->
+    <div class="details-container" appAnimate="reveal-right">
+      
+      <!-- Business Hours Card -->
+      <div class="hours-card">
+        <h3 class="card-subtitle">WORKSHOP HOURS</h3>
+        <p class="hours-text">Mon–Sat: 7:30am–6pm</p>
+        <p class="hours-text note-text">Sunday: Closed</p>
+      </div>
+
+      <!-- Quick Contact Cards -->
+      <div class="quick-contact-grid">
+        <a href="tel:+254712345678" class="quick-card">
+          <span class="card-icon">📞</span>
+          <span class="card-label">CALL NOW</span>
+          <span class="card-val">+254 712 345 678</span>
+        </a>
+        
+        <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" class="quick-card whatsapp-card">
+          <span class="card-icon">💬</span>
+          <span class="card-label">WHATSAPP</span>
+          <span class="card-val">Chat Directly</span>
+        </a>
+
+        <a href="mailto:info@braviongroup.co.ke" class="quick-card">
+          <span class="card-icon">✉</span>
+          <span class="card-label">EMAIL US</span>
+          <span class="card-val">info@braviongroup.co.ke</span>
+        </a>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.03478951239!2d36.7029864!3d-1.3200157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1bdf507df0ad%3A0xe9ec417387ccbb6a!2sKaren%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
+          width="100%" 
+          height="280" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          class="google-map-iframe">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Mobile Pinned Call Now Button (Visible only on mobile viewports) -->
+  <div class="mobile-pinned-bar">
+    <a href="tel:+254712345678" class="pinned-call-btn">CALL NOW: +254 712 345 678</a>
+  </div>
+
+</div>

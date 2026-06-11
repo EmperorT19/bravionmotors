@@ -12,14 +12,15 @@
 
   <div class="service-split-layout">
     
-    <!-- Left Column: Workshop Real Data Info Card -->
-    <div class="stats-panel" appAnimate="reveal-left">
-      <div class="garage-info-card">
+    <!-- Left Column: Workshop Real Data Info Card + Masonry Grid -->
+    <div class="stats-panel">
+      <div class="garage-info-card" appAnimate="reveal-left">
         <!-- Servicing Section Image with subtle red gradient overlay -->
         <div class="card-image-container">
           <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=800" 
                class="placeholder-img servicing-bg-img" 
-               alt="Bravion Motors Servicing Workshop Bay">
+               alt="Bravion Motors Servicing Workshop Bay"
+               data-replace="Servicing Section Background Image">
           <div class="red-gradient-overlay"></div>
         </div>
 
@@ -43,12 +44,28 @@
           </div>
         </div>
       </div>
+
+      <!-- Workshop CSS Masonry Grid -->
+      <div class="workshop-masonry-grid" appAnimate="reveal-up">
+        <div class="masonry-item large-item">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600" class="placeholder-img masonry-img" alt="Bravion Motors Technician performing engine diagnostics" data-replace="Technician performing engine diagnostics">
+        </div>
+        <div class="masonry-item">
+          <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?w=600" class="placeholder-img masonry-img" alt="Bravion Motors Mechanic tool cabinet and parts" data-replace="Mechanic tool cabinet and parts">
+        </div>
+        <div class="masonry-item">
+          <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600" class="placeholder-img masonry-img" alt="Bravion Motors Vehicle on service lift bay" data-replace="Vehicle on service lift bay">
+        </div>
+      </div>
     </div>
 
-    <!-- Right Column: Services List (Brutalist Typography) -->
+    <!-- Right Column: Services List (Brutalist Typography with Images) -->
     <div class="disciplines-panel">
       @for (srv of services; track srv.index) {
         <div class="discipline-item" appAnimate="reveal-up">
+          <div class="discipline-card-header-img-container">
+            <img [src]="srv.img" class="placeholder-img discipline-card-img" [alt]="'Photo representing ' + srv.title" [attr.data-replace]="srv.title + ' Header Image'">
+          </div>
           <div class="discipline-title-row">
             <span class="discipline-number">{{ srv.index }}</span>
             <h3 class="discipline-title">{{ srv.title }}</h3>

@@ -1,0 +1,297 @@
+.contact-page {
+  padding: 14vh 8vw 8vh 8vw;
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+.contact-hero {
+  margin-bottom: 6vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.contact-intro-desc {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #888888;
+}
+
+/* Underline draw animation */
+.underline-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+.underline-svg {
+  width: 120px;
+  height: 8px;
+  margin-top: 4px;
+}
+
+.underline-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.underline-wrapper.visible .underline-line {
+  stroke-dashoffset: 0;
+}
+
+.contact-split-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+/* Form Styling */
+.brutalist-form-box {
+  background-color: #0c0c0c;
+  border: 1px solid #161616;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #666666;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.brutalist-input, .brutalist-select, .brutalist-textarea {
+  background-color: #040404;
+  border: 1px solid #222222;
+  padding: 0.8rem 1.2rem;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.brutalist-input:focus, .brutalist-select:focus, .brutalist-textarea:focus {
+  border-color: #ff0000;
+}
+
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Success Message */
+.success-message {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2.5rem;
+  border: 1px solid #ffffff;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.success-icon {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.success-text strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.success-text p {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Right Column details */
+.hours-card {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 2.5rem;
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.card-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.hours-text {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.hours-text.note-text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Quick Contact cards */
+.quick-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quick-card {
+  background-color: #0c0c0c;
+  border: 1px solid #161616;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  gap: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-card:hover {
+  border-color: #ff0000;
+  box-shadow: 0 5px 30px rgba(255, 0, 0, 0.25);
+}
+
+.quick-card.whatsapp-card:hover {
+  border-color: #25d366;
+  box-shadow: 0 5px 30px rgba(37, 211, 102, 0.25);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.card-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: #666666;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card-val {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #ffffff;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+/* Google Maps */
+.map-wrapper {
+  border: 1px solid #161616;
+  overflow: hidden;
+  background-color: #0c0c0c;
+}
+
+.google-map-iframe {
+  display: block;
+  filter: invert(90%) hue-rotate(180deg) brightness(0.95) contrast(1.1);
+}
+
+/* Mobile pinned Call Bar */
+.mobile-pinned-bar {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .contact-split-layout {
+    grid-template-columns: 1fr;
+    gap: 4vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 14vh 6vw 12vh 6vw; /* extra space at bottom for mobile call now button */
+  }
+  
+  .quick-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2vh;
+  }
+  
+  .mobile-pinned-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff0000;
+    z-index: 999;
+    border-top: 1px solid #ffffff;
+    text-align: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .pinned-call-btn {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1.2rem 0;
+    letter-spacing: 0.05em;
+  }
+}
