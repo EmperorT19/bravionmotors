@@ -32,6 +32,17 @@ export class PartsComponent {
         { label: 'SPRING RATE', value: '120 N/MM' },
         { label: 'COATING', value: 'DIAMOND-LIKE CARBON' }
       ]
+    },
+    {
+      id: '03',
+      title: 'TITANIUM EXHAUST SYSTEM',
+      category: 'THERMAL FLUIDICS',
+      desc: 'An ultra-lightweight, backpressure-optimized manifold system crafted from grade-5 titanium. Features hand-purged TIG welds and progressive expansion chambers to maximize exhaust velocity scavenging.',
+      specs: [
+        { label: 'MATERIAL', value: 'GRADE-5 AL-TI-V' },
+        { label: 'WEIGHT REDUCTION', value: '45% VS INCONEL' },
+        { label: 'TOLERANCE', value: '±0.05 MM WELD DEV' }
+      ]
     }
   ];
 }

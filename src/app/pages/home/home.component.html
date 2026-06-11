@@ -37,10 +37,74 @@
     </div>
   </section>
 
-  <!-- SECTION 3: NAVIGATION HUB -->
+  <!-- SECTION 3: CFD WIND TUNNEL SIMULATION -->
+  <section class="snap-section cfd-section viewport-section">
+    <div class="cfd-header">
+      <span class="section-label" appAnimate="reveal-left">03 / AERODYNAMICS</span>
+    </div>
+    
+    <div class="cfd-split-layout">
+      <!-- Left: Description and Data Grid -->
+      <div class="cfd-info">
+        <h2 class="cfd-title" appAnimate="reveal-left">CFD SIMULATION</h2>
+        <p class="cfd-desc" appAnimate="reveal-up">
+          Virtual boundary layer testing across speeds. Fluid dynamic models analyze vortex shedding off rear decklids and boundary separation under the front splitter.
+        </p>
+        
+        <div class="cfd-table" appAnimate="reveal-up">
+          <div class="cfd-row header-row">
+            <span>VELOCITY</span>
+            <span>DRAG FORCE</span>
+            <span>DOWNFORCE</span>
+          </div>
+          <div class="cfd-row">
+            <span>150 KM/H</span>
+            <span>120 N</span>
+            <span>350 N</span>
+          </div>
+          <div class="cfd-row">
+            <span>250 KM/H</span>
+            <span>310 N</span>
+            <span>980 N</span>
+          </div>
+          <div class="cfd-row">
+            <span>320 KM/H</span>
+            <span>520 N</span>
+            <span class="red-highlight">1,610 N</span> <!-- Single red accent in this section -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: SVG plot of Lift vs Drag -->
+      <div class="cfd-visual" appAnimate="reveal-scale">
+        <div class="graph-container">
+          <svg viewBox="0 0 400 300" class="cfd-graph-svg">
+            <!-- Grid Lines -->
+            <line x1="50" y1="50" x2="50" y2="250" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+            <line x1="50" y1="250" x2="350" y2="250" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+            <line x1="50" y1="150" x2="350" y2="150" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 5" />
+            <line x1="200" y1="50" x2="200" y2="250" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 5" />
+            
+            <!-- Labels -->
+            <text x="50" y="35" fill="#666666" font-family="var(--font-mono)" font-size="9" letter-spacing="0.1em">DOWNFORCE (N)</text>
+            <text x="290" y="270" fill="#666666" font-family="var(--font-mono)" font-size="9" letter-spacing="0.1em">VELOCITY</text>
+            
+            <!-- Graph curve (white outline, red accent points) -->
+            <path d="M 50 250 Q 180 200 350 70" fill="none" stroke="#ffffff" stroke-width="3" />
+            
+            <!-- Accent Point -->
+            <circle cx="350" cy="70" r="5" fill="#e50000" />
+            <circle cx="200" cy="189" r="4" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: NAVIGATION HUB -->
   <section class="snap-section hub-section viewport-section">
     <div class="hub-header">
-      <span class="section-label" appAnimate="reveal-left">03 / DEVIATE</span>
+      <span class="section-label" appAnimate="reveal-left">04 / DEVIATE</span>
     </div>
     
     <div class="hub-links">
