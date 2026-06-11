@@ -1,15 +1,15 @@
-<div class="horizontal-scroll-container">
+<div class="yard-page">
 
   <!-- YARD HEADER SLIDE -->
   <div class="scroll-slide intro-slide">
     <div class="slide-inner">
-      <span class="section-label" appAnimate="reveal-left">INVENTORY / THE YARD</span>
+      <span class="section-label" appAnimate="reveal-left">01 / THE YARD</span>
       <div class="intro-headline" appAnimate="reveal-up">
         <h1 class="huge-text">THE</h1>
         <h1 class="huge-text red-accent">YARD</h1>
       </div>
       <div class="scroll-indicator" appAnimate="reveal-right">
-        <span>SCROLL HORIZONTALLY →</span>
+        <span>SCROLL DOWN ↓</span>
       </div>
     </div>
   </div>
@@ -24,6 +24,8 @@
           <span class="model-number" appAnimate="reveal-left">{{ model.id }} // INVENTORY</span>
           <h2 class="model-name" appAnimate="reveal-left">{{ model.name }}</h2>
           <span class="model-type" appAnimate="reveal-left">{{ model.type }}</span>
+          
+          <p class="model-desc" appAnimate="reveal-up">{{ model.desc }}</p>
           
           <div class="specs-list" appAnimate="reveal-up">
             <div class="spec-row">

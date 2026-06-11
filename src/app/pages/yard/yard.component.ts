@@ -20,6 +20,7 @@ export class YardComponent {
       weight: '1,180 KG',
       acceleration: '2.4 SEC',
       chassis: 'EXO-BONDED CARBON',
+      desc: 'A structural carbon-monocoque chassis housing a 4.0-liter flat-plane crank twin-turbocharged V8. Utilizes dynamic dry-sump lubrication, pushrod-actuated inboard dampers, and a 3D-printed titanium rear subframe to achieve absolute torsional rigidity.',
       accentColor: '#e50000'
     },
     {
@@ -30,6 +31,7 @@ export class YardComponent {
       weight: '890 KG',
       acceleration: '1.9 SEC',
       chassis: 'HONEYCOMB ALUMINUM',
+      desc: 'An extreme single-seat experimental platform leveraging structural batteries and dual-motor torque vectoring. Designed with aggressive underbody Venturi tunnels, managing boundary layer suction to generate 1,200 kg of ground-effect downforce.',
       accentColor: '#e50000'
     },
     {
@@ -40,6 +42,7 @@ export class YardComponent {
       weight: '1,320 KG',
       acceleration: '1.6 SEC',
       chassis: 'TITANIUM-MATRIX CORES',
+      desc: 'A long-tail hyper-aerodynamic configuration combining a high-pressure turbocharged V6 with three electric MGU-K recovery systems. Implements active rear wings, thermal energy harvesting loops, and carbon-carbon brake discs.',
       accentColor: '#e50000'
     }
   ];
