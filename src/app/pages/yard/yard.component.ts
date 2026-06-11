@@ -38,6 +38,7 @@ export class YardComponent {
       engine: '2.5L Turbo Boxer',
       transmission: '6-Speed Manual',
       drivetrain: 'Symmetrical AWD',
+      img: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800',
       desc: 'Symmetrical all-wheel drive. Stock mechanicals. Recaro bucket seats. Firm ride, absolute control.'
     },
     {
@@ -50,6 +51,7 @@ export class YardComponent {
       engine: '4.6L V8 Petrol',
       transmission: '8-Speed Automatic',
       drivetrain: 'Full-Time 4WD',
+      img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
       desc: 'Triple-zone climate control. Air suspension. Solid ladder frame. Built to survive any Kenyan road.'
     },
     {
@@ -62,6 +64,7 @@ export class YardComponent {
       engine: '2.0L Turbo MIVEC',
       transmission: 'Twin-Clutch SST',
       drivetrain: 'Super-AYC AWD',
+      img: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=800',
       desc: 'Super Active Yaw Control. Brembo brake package. Recaro sports trim. Tracks like it is on rails.'
     },
     {
@@ -74,6 +77,7 @@ export class YardComponent {
       engine: '3.0L Twin-Turbo I6',
       transmission: '7-Speed DCT',
       drivetrain: 'Rear-Wheel Drive',
+      img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=800',
       desc: 'Rear wheel drive. Active M differential. Carbon fiber roof panel. Brutal acceleration on demand.'
     },
     {
@@ -86,6 +90,7 @@ export class YardComponent {
       engine: '4.0L Bi-Turbo V8',
       transmission: '7-Speed Speedshift',
       drivetrain: 'Rear-Wheel Drive',
+      img: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
       desc: 'Hand-assembled AMG engine. Performance exhaust system. Electronic rear differential. Aggressive sound profile.'
     },
     {
@@ -98,6 +103,7 @@ export class YardComponent {
       engine: '2.0L Turbo Boxer',
       transmission: 'Lineartronic CVT',
       drivetrain: 'Symmetrical AWD',
+      img: 'https://images.unsplash.com/photo-1562920841-029f9d2b3b85?w=800',
       desc: 'High ground clearance. Dual X-Mode drive system. Generous boot space. Fast family utility vehicle.'
     },
     {
@@ -110,6 +116,7 @@ export class YardComponent {
       engine: '2.8L Turbo Diesel',
       transmission: '6-Speed Automatic',
       drivetrain: 'Full-Time 4WD',
+      img: 'https://images.unsplash.com/photo-1594568284297-7c64468f5898?w=800',
       desc: 'Seven-seater capacity. Center locking differential. Cream leather interior. Reliable daily luxury runner.'
     },
     {
@@ -122,6 +129,7 @@ export class YardComponent {
       engine: '3.8L Twin-Turbo V6',
       transmission: '6-Speed Dual Clutch',
       drivetrain: 'Attesa E-TS AWD',
+      img: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
       desc: 'All-wheel drive. Attesa E-TS system. Bilstein Damptronic shocks. Hand-built engine. Serious speed.'
     }
   ];

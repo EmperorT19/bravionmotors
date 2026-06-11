@@ -2,7 +2,12 @@
   
   <!-- HEADER -->
   <header class="yard-hero viewport-section">
-    <span class="section-label" appAnimate="reveal-left">02 / VEHICLE FLEET</span>
+    <div class="underline-wrapper" appAnimate="reveal-left">
+      <span class="section-label">02 / VEHICLE FLEET</span>
+      <svg class="underline-svg" viewBox="0 0 100 10">
+        <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+      </svg>
+    </div>
     <h1 class="huge-text" appAnimate="reveal-right">THE YARD</h1>
     <p class="yard-intro-desc" appAnimate="reveal-up">
       40 units on the ground. Imported clean from Japan or verified local trade-ins. Inspect, test, drive out.
@@ -15,39 +20,42 @@
       @for (car of cars; track car.name) {
         <div class="car-card" appAnimate="reveal-up">
           
-          <!-- Silhouette Visualizer -->
+          <!-- Silhouette Visualizer + Real Car Image -->
           <div class="car-visual-wrapper">
-            <svg viewBox="0 0 600 220" class="car-svg">
+            <img [src]="car.img" class="placeholder-img car-inventory-img" [alt]="'Photo of ' + car.fullName">
+            
+            <!-- SVG wireframe overlaid cleanly on top of the image container -->
+            <svg viewBox="0 0 600 220" class="car-svg-overlay">
               <defs>
                 <pattern id="svg-grid-pattern" width="30" height="30" patternUnits="userSpaceOnUse">
-                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#svg-grid-pattern)" />
               
               <!-- Ground reference line -->
-              <line x1="50" y1="170" x2="550" y2="170" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="5 5" />
+              <line x1="50" y1="170" x2="550" y2="170" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="5 5" />
               
               <!-- Sports Coupe Silhouette (GT-R / STI / EVO / M3 / AMG) -->
               @if (car.name === 'NISSAN GTR' || car.name === 'SUBARU STI' || car.name === 'LANCER EVO' || car.name === 'BMW M3' || car.name === 'AMG C63') {
                 <polygon points="80,170 120,150 180,145 220,105 380,95 460,145 520,150 540,170" 
-                         [style.stroke]="activeFinishes[car.name] === 'STEALTH' ? '#444444' : activeFinishes[car.name] === 'CARBON' ? '#888888' : activeFinishes[car.name] === 'RED' ? '#e50000' : '#ffffff'"
-                         [style.fill]="activeFinishes[car.name] === 'STEALTH' ? 'rgba(30,30,30,0.8)' : activeFinishes[car.name] === 'CARBON' ? 'rgba(15,15,15,0.9)' : activeFinishes[car.name] === 'RED' ? 'rgba(229,0,0,0.15)' : 'rgba(255,255,255,0.02)'" 
-                         stroke-width="2.5" />
-                <path d="M 220 105 Q 300 90 380 95" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
-                <circle cx="170" cy="170" r="30" fill="#000" stroke="#ffffff" stroke-width="2" />
-                <circle cx="450" cy="170" r="30" fill="#000" stroke="#ffffff" stroke-width="2" />
+                         [style.stroke]="activeFinishes[car.name] === 'STEALTH' ? '#444444' : activeFinishes[car.name] === 'CARBON' ? '#888888' : activeFinishes[car.name] === 'RED' ? '#ff0000' : '#ffffff'"
+                         [style.fill]="activeFinishes[car.name] === 'STEALTH' ? 'rgba(30,30,30,0.7)' : activeFinishes[car.name] === 'CARBON' ? 'rgba(15,15,15,0.85)' : activeFinishes[car.name] === 'RED' ? 'rgba(255,0,0,0.15)' : 'rgba(255,255,255,0.03)'" 
+                         stroke-width="3" />
+                <path d="M 220 105 Q 300 90 380 95" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+                <circle cx="170" cy="170" r="30" fill="#000" stroke="#ffffff" stroke-width="2.5" />
+                <circle cx="450" cy="170" r="30" fill="#000" stroke="#ffffff" stroke-width="2.5" />
               }
               
               <!-- SUV Silhouette (LANDCRUISER / PRADO / FORESTER) -->
               @if (car.name === 'LANDCRUISER ZX' || car.name === 'PRADO TXL' || car.name === 'FORESTER XT') {
                 <polygon points="70,170 80,130 140,120 180,85 420,85 480,120 530,130 540,170" 
-                         [style.stroke]="activeFinishes[car.name] === 'STEALTH' ? '#444444' : activeFinishes[car.name] === 'CARBON' ? '#888888' : activeFinishes[car.name] === 'RED' ? '#e50000' : '#ffffff'"
-                         [style.fill]="activeFinishes[car.name] === 'STEALTH' ? 'rgba(30,30,30,0.8)' : activeFinishes[car.name] === 'CARBON' ? 'rgba(15,15,15,0.9)' : activeFinishes[car.name] === 'RED' ? 'rgba(229,0,0,0.15)' : 'rgba(255,255,255,0.02)'" 
-                         stroke-width="2.5" />
-                <path d="M 180 85 L 420 85" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
-                <circle cx="160" cy="170" r="32" fill="#000" stroke="#ffffff" stroke-width="2" />
-                <circle cx="440" cy="170" r="32" fill="#000" stroke="#ffffff" stroke-width="2" />
+                         [style.stroke]="activeFinishes[car.name] === 'STEALTH' ? '#444444' : activeFinishes[car.name] === 'CARBON' ? '#888888' : activeFinishes[car.name] === 'RED' ? '#ff0000' : '#ffffff'"
+                         [style.fill]="activeFinishes[car.name] === 'STEALTH' ? 'rgba(30,30,30,0.7)' : activeFinishes[car.name] === 'CARBON' ? 'rgba(15,15,15,0.85)' : activeFinishes[car.name] === 'RED' ? 'rgba(255,0,0,0.15)' : 'rgba(255,255,255,0.03)'" 
+                         stroke-width="3" />
+                <path d="M 180 85 L 420 85" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+                <circle cx="160" cy="170" r="32" fill="#000" stroke="#ffffff" stroke-width="2.5" />
+                <circle cx="440" cy="170" r="32" fill="#000" stroke="#ffffff" stroke-width="2.5" />
               }
             </svg>
             <div class="card-paint-code">{{ activeFinishes[car.name] || 'RAW' }}</div>

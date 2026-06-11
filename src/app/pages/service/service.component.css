@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  background-color: var(--bg);
 }
 
 .service-header {
@@ -15,12 +16,45 @@
   width: 100%;
 }
 
+/* Underline draw animation */
+.underline-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+.underline-svg {
+  width: 120px;
+  height: 8px;
+  margin-top: 4px;
+}
+
+.underline-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.underline-wrapper.visible .underline-line {
+  stroke-dashoffset: 0;
+}
+
 .status-badge {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   letter-spacing: 0.15em;
-  color: var(--accent); /* Single sparing red accent per page rules */
+  color: #ff0000;
   font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
 
 .service-split-layout {
@@ -30,7 +64,7 @@
   align-items: start;
 }
 
-/* Garage Info Card */
+/* Stats Panel / Garage Card */
 .stats-panel {
   display: flex;
   flex-direction: column;
@@ -45,12 +79,46 @@
   gap: 1.5rem;
 }
 
+.card-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+.servicing-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.5) contrast(1.15);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.garage-info-card:hover .servicing-bg-img {
+  transform: scale(1.08);
+}
+
+/* Subtle red gradient overlay on the dark image */
+.red-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .garage-title {
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--text);
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -84,7 +152,7 @@
 .g-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #666666;
+  color: #555555;
   letter-spacing: 0.1em;
   font-weight: 700;
 }
@@ -92,7 +160,7 @@
 .g-value {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--text);
+  color: #ffffff;
   line-height: 1.4;
 }
 
@@ -110,7 +178,7 @@
 }
 
 .discipline-item:hover {
-  border-color: var(--accent); /* Subtle interaction focus */
+  border-color: #ff0000;
 }
 
 .discipline-title-row {
@@ -123,7 +191,7 @@
 .discipline-number {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: #666666;
+  color: #555555;
 }
 
 .discipline-title {
@@ -133,6 +201,12 @@
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 1;
+  color: #ffffff;
+  transition: text-shadow 0.3s ease;
+}
+
+.discipline-item:hover .discipline-title {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
 }
 
 .discipline-desc {
@@ -149,12 +223,14 @@
     grid-template-columns: 1fr;
     gap: 8vh;
   }
-  
-  .stats-panel {
-    gap: 4rem;
-  }
 
   .discipline-item {
     padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-page {
+    padding: 14vh 6vw 8vh 6vw;
   }
 }

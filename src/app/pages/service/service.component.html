@@ -1,7 +1,12 @@
 <div class="service-page viewport-section grid-bg">
   
   <div class="service-header">
-    <span class="section-label" appAnimate="reveal-left">03 / GARAGE & WORKSHOP</span>
+    <div class="underline-wrapper" appAnimate="reveal-left">
+      <span class="section-label">03 / GARAGE & WORKSHOP</span>
+      <svg class="underline-svg" viewBox="0 0 100 10">
+        <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+      </svg>
+    </div>
     <div class="status-badge" appAnimate="reveal-right">[ 6 BAYS OPEN ]</div>
   </div>
 
@@ -10,6 +15,14 @@
     <!-- Left Column: Workshop Real Data Info Card -->
     <div class="stats-panel" appAnimate="reveal-left">
       <div class="garage-info-card">
+        <!-- Servicing Section Image with subtle red gradient overlay -->
+        <div class="card-image-container">
+          <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=800" 
+               class="placeholder-img servicing-bg-img" 
+               alt="Bravion Motors Servicing Workshop Bay">
+          <div class="red-gradient-overlay"></div>
+        </div>
+
         <h2 class="garage-title">THE GARAGE</h2>
         <p class="garage-desc">
           Six high-capacity servicing bays in Karen. Fully equipped with modern diagnostic tools and alignment rigs.

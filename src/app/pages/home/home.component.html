@@ -2,20 +2,47 @@
   
   <!-- SECTION 1: HERO -->
   <section class="snap-section hero-section viewport-section">
+    <!-- Parallax Image Background -->
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600" 
+         class="placeholder-img hero-parallax-bg" 
+         alt="Bravion Motors Hero Background"
+         [style.transform]="'translateY(' + (scrollY * 0.45) + 'px)'">
+    
+    <!-- Red Light Leak Overlay -->
+    <div class="red-light-leak"></div>
+    
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+
     <div class="hero-header">
-      <span class="section-label" appAnimate="reveal-left">01 / BRAND</span>
+      <div class="underline-wrapper" appAnimate="reveal-left">
+        <span class="section-label">01 / BRAND</span>
+        <svg class="underline-svg" viewBox="0 0 100 10">
+          <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+        </svg>
+      </div>
       <div class="red-accent-tag" appAnimate="reveal-right">[ EST. 2018 ]</div>
     </div>
     
     <div class="hero-content">
       <div class="hero-title-row">
-        <h1 class="huge-text" appAnimate="reveal-left">YOUR CAR</h1>
+        <h1 class="huge-text">
+          <span class="stagger-word" style="animation-delay: 0.1s">YOUR</span>
+          <span class="stagger-word" style="animation-delay: 0.2s">CAR</span>
+        </h1>
       </div>
       <div class="hero-title-row">
-        <h1 class="huge-text" appAnimate="reveal-left">DOESN'T LIE.</h1>
+        <h1 class="huge-text">
+          <span class="stagger-word" style="animation-delay: 0.3s">DOESN'T</span>
+          <span class="stagger-word" style="animation-delay: 0.4s">LIE.</span>
+        </h1>
       </div>
       <div class="hero-title-row align-right">
-        <h1 class="huge-text red-accent" appAnimate="reveal-right">NEITHER DO WE.</h1>
+        <h1 class="huge-text red-accent">
+          <span class="stagger-word" style="animation-delay: 0.5s">NEITHER</span>
+          <span class="stagger-word" style="animation-delay: 0.6s">DO</span>
+          <span class="stagger-word" style="animation-delay: 0.7s">WE.</span>
+        </h1>
       </div>
     </div>
 
@@ -32,10 +59,15 @@
     </div>
   </section>
 
-  <!-- SECTION 2: ABOUT (3 PARAGRAPHS, REAL STORY) -->
-  <section class="snap-section about-section viewport-section">
+  <!-- SECTION 2: ABOUT (FULLY SATURATED RED SECTION, NO SOFT SHADOWS) -->
+  <section class="snap-section about-section viewport-section red-punch-section">
     <div class="about-header">
-      <span class="section-label" appAnimate="reveal-left">02 / ORIGIN STORY</span>
+      <div class="underline-wrapper" appAnimate="reveal-left">
+        <span class="section-label white-label">02 / ORIGIN STORY</span>
+        <svg class="underline-svg" viewBox="0 0 100 10">
+          <line x1="0" y1="5" x2="100" y2="5" stroke="#ffffff" stroke-width="2" class="underline-line" />
+        </svg>
+      </div>
     </div>
     
     <div class="about-content">
@@ -55,53 +87,58 @@
 
   <!-- SECTION 3: STATS BAR & TESTIMONIALS -->
   <section class="snap-section stats-section viewport-section">
-    <!-- Stats Row -->
-    <div class="stats-grid" appAnimate="reveal-up">
+    <!-- Stats Row (Drives count up) -->
+    <div class="stats-grid">
       <div class="stat-card">
-        <span class="stat-num">6</span>
+        <span class="stat-num">{{ yearsOpen }}</span>
         <span class="stat-desc">YEARS OPEN</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">6</span>
+        <span class="stat-num">{{ workshopBays }}</span>
         <span class="stat-desc">WORKSHOP BAYS</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">40+</span>
+        <span class="stat-num">{{ carsInYard }}+</span>
         <span class="stat-desc">CARS IN YARD</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">3,500+</span>
+        <span class="stat-num">{{ happyClients | number }}+</span>
         <span class="stat-desc">HAPPY CLIENTS</span>
       </div>
     </div>
 
     <!-- Testimonials Header -->
     <div class="testimonials-header">
-      <span class="section-label" appAnimate="reveal-left">03 / FEEDBACK</span>
+      <div class="underline-wrapper" appAnimate="reveal-left">
+        <span class="section-label">03 / FEEDBACK</span>
+        <svg class="underline-svg" viewBox="0 0 100 10">
+          <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+        </svg>
+      </div>
       <h2 class="testimonials-title" appAnimate="reveal-right">REAL REVIEWS</h2>
     </div>
 
-    <!-- 4 Kenyan Testimonials Grid -->
+    <!-- 4 Kenyan Testimonials Grid (Frosted Glass Cards) -->
     <div class="testimonials-grid">
-      <div class="testimonial-card" appAnimate="reveal-left">
+      <div class="testimonial-card frosted-card" appAnimate="reveal-left">
         <p class="testimonial-text">
           Brought my Subaru here for a complete engine overhaul. The cylinder compression was restored. Torsional damping is spot on.
         </p>
         <span class="testimonial-author">// KAMAU NJOROGE</span>
       </div>
-      <div class="testimonial-card" appAnimate="reveal-right">
+      <div class="testimonial-card frosted-card" appAnimate="reveal-right">
         <p class="testimonial-text">
           Sourced a Nissan X-Trail through their local trade-in pool. Clean paperwork. Logbook delivered in ten days.
         </p>
         <span class="testimonial-author">// AMINAH OMONDI</span>
       </div>
-      <div class="testimonial-card" appAnimate="reveal-left">
+      <div class="testimonial-card frosted-card" appAnimate="reveal-left">
         <p class="testimonial-text">
           Best wheel alignment in Nairobi. My Mercedes went from pulling left to tracking dead straight on Ngong Road.
         </p>
         <span class="testimonial-author">// DAVID KIPROP</span>
       </div>
-      <div class="testimonial-card" appAnimate="reveal-right">
+      <div class="testimonial-card frosted-card" appAnimate="reveal-right">
         <p class="testimonial-text">
           Sourced an OEM Mitsubishi radiator same afternoon. Most parts dealers wanted two weeks. Out of the bay in hours.
         </p>
@@ -113,7 +150,12 @@
   <!-- SECTION 4: CFD WIND TUNNEL SIMULATION -->
   <section class="snap-section cfd-section viewport-section">
     <div class="cfd-header">
-      <span class="section-label" appAnimate="reveal-left">04 / AERODYNAMICS</span>
+      <div class="underline-wrapper" appAnimate="reveal-left">
+        <span class="section-label">04 / AERODYNAMICS</span>
+        <svg class="underline-svg" viewBox="0 0 100 10">
+          <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+        </svg>
+      </div>
     </div>
     
     <div class="cfd-split-layout">
@@ -160,7 +202,7 @@
             
             <path d="M 50 250 Q 180 200 350 70" fill="none" stroke="#ffffff" stroke-width="3" />
             
-            <circle cx="350" cy="70" r="5" fill="#e50000" />
+            <circle cx="350" cy="70" r="5" fill="#ff0000" />
             <circle cx="200" cy="189" r="4" fill="#ffffff" />
           </svg>
         </div>
@@ -171,7 +213,12 @@
   <!-- SECTION 5: NAVIGATION HUB -->
   <section class="snap-section hub-section viewport-section">
     <div class="hub-header">
-      <span class="section-label" appAnimate="reveal-left">05 / DEVIATE</span>
+      <div class="underline-wrapper" appAnimate="reveal-left">
+        <span class="section-label">05 / DEVIATE</span>
+        <svg class="underline-svg" viewBox="0 0 100 10">
+          <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+        </svg>
+      </div>
     </div>
     
     <div class="hub-links">
