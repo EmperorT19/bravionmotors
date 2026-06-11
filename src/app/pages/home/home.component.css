@@ -1,0 +1,164 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10% 8vw 6% 8vw;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.red-accent-tag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--accent); /* Single aggressive red accent used sparingly */
+  font-weight: 700;
+}
+
+.hero-content {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-title-row {
+  display: flex;
+  width: 100%;
+}
+
+.hero-title-row.align-right {
+  justify-content: flex-end;
+}
+
+.hero-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-meta {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  letter-spacing: 0.05em;
+  max-width: 600px;
+  line-height: 1.5;
+  color: #888888;
+}
+
+/* SECTION 2: THE MANIFESTO (FULLY RED BACKGROUND) */
+.manifesto-section {
+  background-color: var(--accent); /* Fully red background */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10% 8vw;
+}
+
+.white-label {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.manifesto-content {
+  margin: auto 0;
+}
+
+.manifesto-huge-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 8rem);
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+.manifesto-paragraph {
+  font-family: var(--font-mono);
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  max-width: 1000px;
+  font-weight: 400;
+}
+
+/* SECTION 3: NAVIGATION HUB */
+.hub-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10% 8vw 6% 8vw;
+}
+
+.hub-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto 0;
+}
+
+.hub-link-item {
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 1.5rem;
+}
+
+.hub-anchor {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--text);
+  gap: 2rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hub-anchor:hover {
+  transform: translateX(20px);
+}
+
+.hub-number {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #666666;
+}
+
+.hub-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  transition: color 0.3s ease;
+}
+
+.hub-anchor:hover .hub-text {
+  color: var(--accent); /* Dynamic red accent on hover */
+}
+
+.hub-footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .hero-section, .manifesto-section, .hub-section {
+    padding: 15vh 6vw 8vh 6vw;
+  }
+  
+  .hero-content {
+    margin: 5vh 0;
+  }
+
+  .manifesto-huge-title {
+    margin-bottom: 2rem;
+  }
+
+  .hub-links {
+    margin: 5vh 0;
+  }
+}

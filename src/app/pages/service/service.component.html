@@ -1,0 +1,55 @@
+<div class="service-page viewport-section grid-bg">
+  
+  <div class="service-header">
+    <span class="section-label" appAnimate="reveal-left">02 / GARAGE & SERVICING</span>
+    <!-- Single aggressive red accent used sparingly in this section -->
+    <div class="status-badge" appAnimate="reveal-right">[ TELEMETRY ACTIVE ]</div>
+  </div>
+
+  <div class="service-split-layout">
+    
+    <!-- Left Column: Count-up Statistics -->
+    <div class="stats-panel">
+      
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-number" [countTo]="240" appAnimate="reveal-left">0</span>
+          <span class="stat-suffix">PTS</span>
+        </div>
+        <span class="stat-label" appAnimate="reveal-up">DIAGNOSTIC FACTOR</span>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-number" [countTo]="8" appAnimate="reveal-left">0</span>
+          <span class="stat-suffix">AXIS</span>
+        </div>
+        <span class="stat-label" appAnimate="reveal-up">LASER ALIGNMENT SYSTEM</span>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-number" [countTo]="100" appAnimate="reveal-left">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
+        <span class="stat-label" appAnimate="reveal-up">BESPOKE TOLERANCE METRIC</span>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Services List (Brutalist Typography, No Cards/Icons) -->
+    <div class="disciplines-panel">
+      @for (srv of services; track srv.index) {
+        <div class="discipline-item" appAnimate="reveal-up">
+          <div class="discipline-title-row">
+            <span class="discipline-number">{{ srv.index }}</span>
+            <h3 class="discipline-title">{{ srv.title }}</h3>
+          </div>
+          <p class="discipline-desc">{{ srv.desc }}</p>
+        </div>
+      }
+    </div>
+
+  </div>
+
+</div>

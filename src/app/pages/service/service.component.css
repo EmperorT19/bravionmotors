@@ -1,0 +1,136 @@
+.service-page {
+  min-height: 100vh;
+  padding: 14vh 8vw 8vh 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10vh;
+  width: 100%;
+}
+
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--accent); /* Single sparing red accent per page rules */
+  font-weight: 700;
+}
+
+.service-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 8vw;
+  align-items: start;
+}
+
+/* Stats Panel */
+.stats-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num-wrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 0.75;
+  letter-spacing: -0.05em;
+}
+
+.stat-suffix {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2.5vw, 2.5rem);
+  color: #666666;
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #888888;
+  margin-top: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Disciplines Panel */
+.disciplines-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.discipline-item {
+  border-left: 1px solid #222222;
+  padding-left: 3rem;
+  transition: border-color 0.4s ease;
+}
+
+.discipline-item:hover {
+  border-color: var(--accent); /* Subtle interaction focus */
+}
+
+.discipline-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.discipline-number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+.discipline-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.discipline-desc {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #888888;
+  max-width: 500px;
+}
+
+/* Responsive grid modifications */
+@media (max-width: 992px) {
+  .service-split-layout {
+    grid-template-columns: 1fr;
+    gap: 8vh;
+  }
+  
+  .stats-panel {
+    gap: 4rem;
+  }
+
+  .discipline-item {
+    padding-left: 1.5rem;
+  }
+}

@@ -1,0 +1,33 @@
+.custom-cursor {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              top 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              left 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.2s ease,
+              opacity 0.2s ease;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.custom-cursor.hidden {
+  opacity: 0;
+}
+
+/* Hover expansion state with inversion effect */
+.custom-cursor.hovered {
+  width: 30px;
+  height: 30px;
+  top: -15px;
+  left: -15px;
+  background-color: #ffffff;
+  mix-blend-mode: difference;
+}
