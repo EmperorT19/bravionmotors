@@ -266,6 +266,10 @@
     padding: 14vh 6vw 12vh 6vw; /* extra space at bottom for mobile call now button */
   }
   
+  .brutalist-form-box, .hours-card {
+    padding: 1.5rem;
+  }
+  
   .quick-contact-grid {
     grid-template-columns: 1fr;
     gap: 2vh;

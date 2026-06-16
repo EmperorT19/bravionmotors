@@ -1,80 +1,40 @@
-<div class="service-page viewport-section grid-bg">
+<div class="service-page">
   
-  <div class="service-header">
+  <!-- HEADER -->
+  <header class="service-hero viewport-section">
     <div class="underline-wrapper" appAnimate="reveal-left">
-      <span class="section-label">03 / GARAGE & WORKSHOP</span>
+      <span class="section-label">03 / Servicing & garage</span>
       <svg class="underline-svg" viewBox="0 0 100 10">
         <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
       </svg>
     </div>
-    <div class="status-badge" appAnimate="reveal-right">[ 6 BAYS OPEN ]</div>
-  </div>
+    <h1 class="huge-text" appAnimate="reveal-right">Workshop services</h1>
+    <p class="service-intro-desc" appAnimate="reveal-up">
+      Six high-capacity bays in Karen. Equipped with advanced diagnostics and precision alignment rigs.
+    </p>
+  </header>
 
-  <div class="service-split-layout">
-    
-    <!-- Left Column: Workshop Real Data Info Card + Masonry Grid -->
-    <div class="stats-panel">
-      <div class="garage-info-card" appAnimate="reveal-left">
-        <!-- Servicing Section Image with subtle red gradient overlay -->
-        <div class="card-image-container">
-          <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=800" 
-               class="placeholder-img servicing-bg-img" 
-               alt="Bravion Motors Servicing Workshop Bay"
-               data-replace="Servicing Section Background Image">
-          <div class="red-gradient-overlay"></div>
-        </div>
-
-        <h2 class="garage-title">THE GARAGE</h2>
-        <p class="garage-desc">
-          Six high-capacity servicing bays in Karen. Fully equipped with modern diagnostic tools and alignment rigs.
-        </p>
-        
-        <div class="garage-specs">
-          <div class="g-spec">
-            <span class="g-label">CAPACITY</span>
-            <span class="g-value">6 ACTIVE BAYS</span>
-          </div>
-          <div class="g-spec">
-            <span class="g-label">HOURS</span>
-            <span class="g-value">MON–SAT 7:30AM–6PM</span>
-          </div>
-          <div class="g-spec">
-            <span class="g-label">BRANDS SERVICED</span>
-            <span class="g-value">TOYOTA, SUBARU, MITSUBISHI, NISSAN, MERCEDES, BMW</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Workshop CSS Masonry Grid -->
-      <div class="workshop-masonry-grid" appAnimate="reveal-up">
-        <div class="masonry-item large-item">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600" class="placeholder-img masonry-img" alt="Bravion Motors Technician performing engine diagnostics" data-replace="Technician performing engine diagnostics">
-        </div>
-        <div class="masonry-item">
-          <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?w=600" class="placeholder-img masonry-img" alt="Bravion Motors Mechanic tool cabinet and parts" data-replace="Mechanic tool cabinet and parts">
-        </div>
-        <div class="masonry-item">
-          <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600" class="placeholder-img masonry-img" alt="Bravion Motors Vehicle on service lift bay" data-replace="Vehicle on service lift bay">
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Column: Services List (Brutalist Typography with Images) -->
-    <div class="disciplines-panel">
+  <!-- SERVICES GRID -->
+  <section class="services-grid-section">
+    <div class="services-card-grid">
       @for (srv of services; track srv.index) {
-        <div class="discipline-item" appAnimate="reveal-up">
-          <div class="discipline-card-header-img-container">
-            <img [src]="srv.img" class="placeholder-img discipline-card-img" [alt]="'Photo representing ' + srv.title" [attr.data-replace]="srv.title + ' Header Image'">
+        <div class="service-card" appAnimate="reveal-up">
+          <div class="service-img-container">
+            <img [src]="srv.img" class="service-card-img" [alt]="srv.title" loading="lazy">
+            <span class="service-index">{{ srv.index }}</span>
           </div>
-          <div class="discipline-title-row">
-            <span class="discipline-number">{{ srv.index }}</span>
-            <h3 class="discipline-title">{{ srv.title }}</h3>
+          <div class="service-card-body">
+            <h3 class="service-card-title">{{ srv.title }}</h3>
+            <p class="service-card-desc">{{ srv.desc }}</p>
+            <div class="service-meta">
+              <span class="meta-label">Est. turnaround:</span>
+              <span class="meta-val">{{ srv.turnaround }}</span>
+            </div>
+            <a [routerLink]="['/contact']" [queryParams]="{service: srv.title}" class="book-service-btn">Book a service</a>
           </div>
-          <p class="discipline-desc">{{ srv.desc }}</p>
         </div>
       }
     </div>
-
-  </div>
+  </section>
 
 </div>

@@ -2,12 +2,12 @@
   
   <header class="contact-hero">
     <div class="underline-wrapper" appAnimate="reveal-left">
-      <span class="section-label">04 / GET IN TOUCH</span>
+      <span class="section-label">04 / Get in touch</span>
       <svg class="underline-svg" viewBox="0 0 100 10">
         <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
       </svg>
     </div>
-    <h1 class="huge-text" appAnimate="reveal-right">CONTACT US</h1>
+    <h1 class="huge-text" appAnimate="reveal-right">Contact us</h1>
     <p class="contact-intro-desc" appAnimate="reveal-up">
       Have questions about a unit or need workshop space? Submit details below. We reply within hours.
     </p>
@@ -18,35 +18,35 @@
     <!-- LEFT COLUMN: Form -->
     <div class="form-container" appAnimate="reveal-left">
       <div class="brutalist-form-box">
-        <h2 class="form-title">ENQUIRY FORM</h2>
+        <h2 class="form-title">Enquiry form</h2>
         
         @if (submitted) {
           <div class="success-message">
             <span class="success-icon">✓</span>
             <div class="success-text">
-              <strong>Enquiry Received.</strong>
+              <strong>Enquiry received.</strong>
               <p>Our team will contact you shortly.</p>
             </div>
           </div>
         } @else {
           <form (ngSubmit)="submitEnquiry()" #enquiryForm="ngForm" class="contact-form">
             <div class="form-group">
-              <label for="fullName">FULL NAME</label>
+              <label for="fullName">Full name</label>
               <input type="text" id="fullName" name="fullName" [(ngModel)]="formData.fullName" required placeholder="e.g. John Omondi" class="brutalist-input">
             </div>
 
             <div class="form-group">
-              <label for="phone">PHONE NUMBER (KENYAN FORMAT)</label>
+              <label for="phone">Phone number (Kenyan format)</label>
               <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required placeholder="e.g. 0712 345 678" class="brutalist-input">
             </div>
 
             <div class="form-group">
-              <label for="email">EMAIL ADDRESS (OPTIONAL)</label>
+              <label for="email">Email address (optional)</label>
               <input type="email" id="email" name="email" [(ngModel)]="formData.email" placeholder="e.g. john@example.com" class="brutalist-input">
             </div>
 
             <div class="form-group">
-              <label for="service">SERVICE NEEDED</label>
+              <label for="service">Service needed</label>
               <select id="service" name="service" [(ngModel)]="formData.service" class="brutalist-select">
                 <option value="Car Purchase">Car Purchase</option>
                 <option value="Servicing">Servicing / Garage</option>
@@ -56,21 +56,21 @@
             </div>
 
             <div class="form-group">
-              <label for="carModel">CAR MAKE & MODEL</label>
+              <label for="carModel">Car make & model</label>
               <input type="text" id="carModel" name="carModel" [(ngModel)]="formData.carModel" placeholder="e.g. Subaru WRX STI" class="brutalist-input">
             </div>
 
             <div class="form-group">
-              <label for="datetime">PREFERRED DATE & TIME</label>
+              <label for="datetime">Preferred date & time</label>
               <input type="datetime-local" id="datetime" name="datetime" [(ngModel)]="formData.datetime" class="brutalist-input">
             </div>
 
             <div class="form-group">
-              <label for="message">MESSAGE / NOTES</label>
+              <label for="message">Message / notes</label>
               <textarea id="message" name="message" [(ngModel)]="formData.message" rows="4" placeholder="Describe your request..." class="brutalist-textarea"></textarea>
             </div>
 
-            <button type="submit" class="brutalist-btn submit-btn">SEND ENQUIRY</button>
+            <button type="submit" class="brutalist-btn submit-btn">Send enquiry</button>
           </form>
         }
       </div>
@@ -81,7 +81,7 @@
       
       <!-- Business Hours Card -->
       <div class="hours-card">
-        <h3 class="card-subtitle">WORKSHOP HOURS</h3>
+        <h3 class="card-subtitle">Workshop hours</h3>
         <p class="hours-text">Mon–Sat: 7:30am–6pm</p>
         <p class="hours-text note-text">Sunday: Closed</p>
       </div>
@@ -90,19 +90,19 @@
       <div class="quick-contact-grid">
         <a href="tel:+254712345678" class="quick-card">
           <span class="card-icon">📞</span>
-          <span class="card-label">CALL NOW</span>
+          <span class="card-label">Call now</span>
           <span class="card-val">+254 712 345 678</span>
         </a>
         
         <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" class="quick-card whatsapp-card">
           <span class="card-icon">💬</span>
-          <span class="card-label">WHATSAPP</span>
-          <span class="card-val">Chat Directly</span>
+          <span class="card-label">WhatsApp</span>
+          <span class="card-val">Chat directly</span>
         </a>
 
         <a href="mailto:info@braviongroup.co.ke" class="quick-card">
           <span class="card-icon">✉</span>
-          <span class="card-label">EMAIL US</span>
+          <span class="card-label">Email us</span>
           <span class="card-val">info@braviongroup.co.ke</span>
         </a>
       </div>
@@ -127,7 +127,7 @@
 
   <!-- Mobile Pinned Call Now Button (Visible only on mobile viewports) -->
   <div class="mobile-pinned-bar">
-    <a href="tel:+254712345678" class="pinned-call-btn">CALL NOW: +254 712 345 678</a>
+    <a href="tel:+254712345678" class="pinned-call-btn">Call now: +254 712 345 678</a>
   </div>
 
 </div>

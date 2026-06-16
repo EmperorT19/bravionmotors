@@ -1,0 +1,195 @@
+<div class="config-error-container" *ngIf="hasConfigError">
+  <div class="error-hud">
+    <span class="error-icon">⚠️</span>
+    <h3>CONFIGURATION ERROR</h3>
+    <p>Failed to load design studio data. Please try again later.</p>
+    <button type="button" class="retry-btn" onclick="window.location.reload()">RELOAD STUDIO</button>
+  </div>
+</div>
+
+<div class="hud-frame" *ngIf="configData && !hasConfigError">
+
+  <!-- Ambient scanlines overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- ═══ TOP BAR ══════════════════════════════════════════════ -->
+  <div class="hud-topbar">
+    <div class="hud-topbar-left">
+      <span class="hud-tag">04 // BESPOKE BUILD</span>
+      <h1 class="hud-model-name">{{ selectedModel.name }}</h1>
+    </div>
+    <div class="hud-specs-strip">
+      <div class="hud-spec"><span class="spec-k">Engine</span><span class="spec-v">{{ selectedModel.specs.engine }}</span></div>
+      <div class="hud-spec"><span class="spec-k">Power</span><span class="spec-v">{{ selectedModel.specs.power }}</span></div>
+      <div class="hud-spec"><span class="spec-k">Drive</span><span class="spec-v">{{ selectedModel.specs.drive }}</span></div>
+      <div class="hud-spec"><span class="spec-k">Year</span><span class="spec-v">{{ selectedModel.specs.year }}</span></div>
+    </div>
+    <div class="hud-price-badge">
+      <span class="price-label">TOTAL</span>
+      <span class="price-value">{{ displayedPrice | number }}</span>
+      <span class="price-currency">KES</span>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN HUD GRID (NO SCROLLING) ═════════════════════════ -->
+  <div class="hud-main-grid">
+
+    <!-- LEFT COLUMN: Canvas Preview & Model Carousel -->
+    <div class="preview-area">
+      <div class="canvas-stage">
+        <!-- Corner brackets — purely decorative HUD chrome -->
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <!-- 3D Showroom Platform / Pedestal -->
+        <div class="showroom-pedestal"></div>
+
+        <!-- Loading indicator -->
+        <div class="loading-hud" *ngIf="isLoading && !hasError">
+          <div class="loading-ring"></div>
+          <span>RENDERING 3D MESH…</span>
+        </div>
+
+        <!-- Error/Offline HUD indicator -->
+        <div class="error-hud" *ngIf="hasError">
+          <span class="error-icon">⚠️</span>
+          <h3>STUDIO OFFLINE</h3>
+          <p>{{ errorMessage }}</p>
+          <button type="button" class="retry-btn" (click)="retryLoad()">
+            RETRY CONNECTION
+          </button>
+        </div>
+
+        <!-- The 3D Model Viewer Viewport -->
+        <model-viewer
+          #modelViewer
+          *ngIf="!hasError"
+          [src]="selectedModel.glb"
+          alt="Bravion bespoke customizer"
+          shadow-intensity="1.5"
+          shadow-softness="0.6"
+          camera-controls
+          auto-rotate
+          interaction-prompt="none"
+          class="car-canvas"
+          [class.ready]="!isLoading"
+          (load)="onModelLoad()"
+          (error)="onModelError($event)">
+        </model-viewer>
+
+        <!-- Bottom status strip -->
+        <div class="stage-status" *ngIf="!hasError">
+          <span class="live-dot">●</span>
+          <span>LIVE PREVIEW</span>
+          <span class="stage-sep">|</span>
+          <span>{{ selectedPaint.id === 'stock' ? 'STOCK FINISH' : selectedPaint.name | uppercase }}</span>
+          <span class="stage-sep">|</span>
+          <span>{{ selectedRims.name | uppercase }}</span>
+        </div>
+      </div>
+
+      <!-- HORIZONTAL MODEL SELECTOR CAROUSEL -->
+      <div class="model-carousel-container">
+        <div class="carousel-header">
+          <span class="carousel-title">SELECT MODEL MESH</span>
+          <span class="carousel-instructions">SCROLL HORIZONTALLY TO BROWSE</span>
+        </div>
+        <div class="model-carousel">
+          <button
+            type="button"
+            *ngFor="let m of configData.models"
+            class="model-card-horizontal"
+            [class.active]="selectedModel.id === m.id"
+            (click)="selectModel(m)">
+            <img [src]="m.img" [alt]="m.name" class="model-thumb-h" loading="lazy">
+            <div class="model-card-info-h">
+              <span class="model-card-id-h">{{ m.id }}</span>
+              <span class="model-card-name-h">{{ m.name }}</span>
+            </div>
+            <div class="model-card-active-line-h"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Configurator Controls (Strictly sized, no page scroll) -->
+    <div class="controls-panel">
+
+      <!-- Paint -->
+      <div class="ctrl-block">
+        <div class="ctrl-label">PAINT // BODY FINISH</div>
+        <div class="swatch-grid">
+          <button
+            type="button"
+            *ngFor="let p of configData.paints"
+            class="swatch"
+            [class.active]="selectedPaint.id === p.id"
+            [style.background]="p.hex ?? '#1a1a1a'"
+            [title]="p.name"
+            (click)="selectPaint(p)">
+            <span class="swatch-inner" *ngIf="!p.hex">∅</span>
+          </button>
+        </div>
+        <div class="ctrl-meta">
+          <span>{{ selectedPaint.name }}</span>
+          <span class="ctrl-price" *ngIf="selectedPaint.price > 0">+{{ selectedPaint.price | number }} KES</span>
+          <span class="ctrl-price" *ngIf="selectedPaint.price === 0">INCLUDED</span>
+        </div>
+      </div>
+
+      <!-- Rims -->
+      <div class="ctrl-block">
+        <div class="ctrl-label">RIMS // WHEEL PACKAGE</div>
+        <div class="rim-list">
+          <button
+            type="button"
+            *ngFor="let r of configData.rims"
+            class="rim-btn"
+            [class.active]="selectedRims.id === r.id"
+            (click)="selectRims(r)">
+            <img [src]="r.img" [alt]="r.name" class="rim-btn-img">
+            <div class="rim-btn-info">
+              <span>{{ r.name }}</span>
+              <span class="ctrl-price">{{ r.price > 0 ? ('+' + (r.price | number) + ' KES') : 'INCL.' }}</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="ctrl-block">
+        <div class="ctrl-label">OPTIONS // EXTRAS</div>
+        <div class="options-list">
+          <label
+            *ngFor="let o of configData.options"
+            class="option-row"
+            [class.active]="hasOption(o)"
+            tabindex="0"
+            (keydown.enter)="toggleOption(o); $event.preventDefault()"
+            (keydown.space)="toggleOption(o); $event.preventDefault()">
+            <input type="checkbox" [checked]="hasOption(o)" (change)="toggleOption(o)" class="sr-only" tabindex="-1">
+            <span class="option-check">{{ hasOption(o) ? '■' : '□' }}</span>
+            <div class="option-text">
+              <span class="option-name">{{ o.name }}</span>
+              <span class="option-desc">{{ o.desc }}</span>
+            </div>
+            <span class="ctrl-price">+{{ o.price | number }}</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="ctrl-block cta-block">
+        <a [href]="whatsappLink" target="_blank" rel="noopener noreferrer" class="cta-btn">
+          <span class="cta-icon">◈</span>
+          SUBMIT BUILD VIA WHATSAPP
+        </a>
+        <a routerLink="/inventory" class="cta-back">← RETURN TO YARD</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>

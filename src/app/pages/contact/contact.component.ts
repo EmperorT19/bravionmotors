@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AnimateDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
@@ -10,7 +11,7 @@ import { AnimateDirective } from '../../directives/animate-on-scroll.directive';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   formData = {
     fullName: '',
     phone: '',
@@ -23,10 +24,23 @@ export class ContactComponent {
 
   submitted = false;
 
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params['service']) {
+        this.formData.service = params['service'];
+      }
+      if (params['model']) {
+        this.formData.carModel = params['model'];
+      }
+    });
+  }
+
   submitEnquiry() {
     // Basic format check
     if (!this.formData.fullName || !this.formData.phone) {
-      alert('Full Name and Phone Number are required.');
+      alert('Full name and phone number are required.');
       return;
     }
     

@@ -1,0 +1,751 @@
+/* ── GLOBALS & CONTAINERS ────────────────────────────────────── */
+:host {
+  display: block;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 12vh 2.5vw 2.5vh 2.5vw; /* offsets fixed header navbar */
+  background-color: #030303;
+  color: #e0e0e0;
+  font-family: ui-monospace, 'SF Mono', Monaco, Consolas, monospace;
+  overflow: hidden;
+  position: relative;
+}
+
+.hud-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  gap: 1.5vh;
+}
+
+/* Ambient CRT scanline overlay */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* ── TOP BAR (HEADER & SPEC STRIP) ───────────────────────────── */
+.hud-topbar {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  align-items: center;
+  border: 1px solid rgba(229, 0, 0, 0.35);
+  background: rgba(12, 6, 6, 0.7);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 0 15px rgba(229,0,0,0.05);
+  height: 9vh;
+  min-height: 70px;
+}
+
+.hud-topbar-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-tag {
+  font-size: 11px;
+  color: #ff3333;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.hud-model-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+.hud-specs-strip {
+  display: flex;
+  justify-content: space-evenly;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.hud-spec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spec-k {
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.spec-v {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.hud-price-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.price-label {
+  font-size: 10px;
+  color: #ff3333;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+}
+
+.price-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.price-currency {
+  font-size: 12px;
+  color: #ff3333;
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+/* ── MAIN HUD GRID (NO SCROLL) ────────────────────────────────── */
+.hud-main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2vw;
+  flex-grow: 1;
+  height: 75vh;
+  min-height: 0; /* allows grid items to shrink */
+  overflow: hidden;
+}
+
+.preview-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  height: 100%;
+  min-height: 0;
+}
+
+/* ── CANVAS PREVIEW STAGE ─────────────────────────────────────── */
+.canvas-stage {
+  position: relative;
+  flex-grow: 1;
+  background: radial-gradient(circle at center, #1b0c0c 0%, #020202 85%);
+  border: 1px solid rgba(229, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.95);
+  min-height: 0;
+  perspective: 1000px;
+}
+
+/* Futuristic circular showroom pedestal in 3D perspective */
+.showroom-pedestal {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%, 0) rotateX(75deg);
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229,0,0,0.12) 0%, rgba(3,3,3,0.85) 70%, rgba(229,0,0,0.4) 100%);
+  border: 3px solid rgba(229, 0, 0, 0.55);
+  box-shadow: 
+    0 0 35px rgba(229, 0, 0, 0.35),
+    inset 0 0 45px rgba(229, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 0;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+model-viewer.car-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background-color: transparent;
+  outline: none;
+  --poster-color: transparent;
+}
+
+model-viewer.car-canvas.ready {
+  opacity: 1;
+}
+
+/* Rims overlay styling */
+.rim-overlay {
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  filter: brightness(0.9) contrast(1.1);
+  will-change: transform;
+}
+
+/* HUD corner bracket details */
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ff3333;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.corner.tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.corner.tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.corner.bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.corner.br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+/* Status indicator at the bottom of the canvas */
+.stage-status {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(229, 0, 0, 0.25);
+  padding: 0.3rem 1rem;
+  font-size: 11px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 4;
+}
+
+.live-dot {
+  color: #ff3333;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.stage-sep {
+  color: #444;
+}
+
+/* Loading state */
+.loading-hud {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: #ff3333;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+}
+
+.loading-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(229, 0, 0, 0.15);
+  border-top-color: #ff3333;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── HORIZONTAL MODEL SELECTOR CAROUSEL ──────────────────────── */
+.model-carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(12, 6, 6, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1rem;
+  height: 18vh;
+  min-height: 100px;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #666;
+  letter-spacing: 0.1em;
+}
+
+.carousel-title {
+  color: #fff;
+  font-weight: 700;
+}
+
+.model-carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  flex-grow: 1;
+  /* Hide standard scrollbars for a premium gaming experience */
+  scrollbar-width: thin;
+  scrollbar-color: #ff3333 #1a1a1a;
+}
+
+.model-carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+.model-carousel::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.model-carousel::-webkit-scrollbar-thumb {
+  background: #ff3333;
+}
+
+.model-card-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  min-width: 260px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.model-card-horizontal:hover {
+  border-color: rgba(229, 0, 0, 0.45);
+  background: #140d0d;
+}
+
+.model-card-horizontal.active {
+  border-color: #ff3333;
+  background: #1a0a0a;
+  box-shadow: inset 0 0 10px rgba(229, 0, 0, 0.15);
+}
+
+.model-thumb-h {
+  width: 75px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.model-card-info-h {
+  display: flex;
+  flex-direction: column;
+}
+
+.model-card-id-h {
+  font-size: 9px;
+  color: #ff3333;
+  font-weight: 700;
+}
+
+.model-card-name-h {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.model-card-active-line-h {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff3333;
+  transition: width 0.25s ease;
+}
+
+.model-card-horizontal.active .model-card-active-line-h {
+  width: 100%;
+}
+
+/* ── CONTROLS PANEL (STRICTLY SIZED) ────────────────────────── */
+.controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  background: rgba(12, 6, 6, 0.8);
+  border: 1px solid rgba(229, 0, 0, 0.2);
+  padding: 1.5rem;
+  overflow-y: auto; /* scroll inside sidebar if viewport is tiny */
+  scrollbar-width: thin;
+  height: 100%;
+}
+
+.ctrl-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1.5vh;
+}
+
+.ctrl-label {
+  font-size: 11px;
+  color: #ff3333;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  border-left: 2px solid #ff3333;
+  padding-left: 8px;
+}
+
+/* Paint swatches */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+.swatch {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid #222;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  padding: 0;
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(229, 0, 0, 0.6);
+  transform: scale(1.05);
+}
+
+.swatch-inner {
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+}
+
+.ctrl-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.ctrl-price {
+  color: #ff3333;
+  font-weight: 700;
+}
+
+/* Rims buttons */
+.rim-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rim-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.rim-btn:hover {
+  border-color: rgba(229, 0, 0, 0.4);
+  background: #140d0d;
+}
+
+.rim-btn.active {
+  border-color: #ff3333;
+  background: #1a0a0a;
+}
+
+.rim-btn-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #333;
+}
+
+.rim-btn-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Options checkbox toggles */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-row:hover {
+  border-color: rgba(229, 0, 0, 0.4);
+}
+
+.option-row.active {
+  border-color: #ff3333;
+  background: #1a0a0a;
+}
+
+.option-check {
+  font-size: 14px;
+  color: #ff3333;
+  margin-right: 12px;
+  width: 16px;
+  text-align: center;
+}
+
+.option-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.option-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.option-desc {
+  font-size: 10px;
+  color: #666;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Call to action panel block */
+.cta-block {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: auto;
+  gap: 0.5rem;
+}
+
+.cta-btn {
+  background: #ff3333;
+  border: 1px solid #ff3333;
+  color: #fff;
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+  background: transparent;
+  color: #ff3333;
+  box-shadow: 0 0 15px rgba(229, 0, 0, 0.4);
+}
+
+.cta-icon {
+  font-size: 14px;
+}
+
+.cta-back {
+  font-size: 11px;
+  color: #666;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.2s ease;
+  margin-top: 4px;
+}
+
+.cta-back:hover {
+  color: #fff;
+}
+
+/* ── RESPONSIVE VIEWPORTS ────────────────────────────────────── */
+@media (max-width: 992px) {
+  .hud-main-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Under 768px, layout remains single column but allows vertical overflow inside HUD bounds */
+  .hud-main-grid {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    height: auto;
+  }
+  
+  :host {
+    overflow-y: auto;
+    height: auto;
+    padding-top: 15vh;
+  }
+  
+  .canvas-stage {
+    height: 300px;
+  }
+}
+
+/* Accessibility Focus States */
+.model-card-horizontal:focus-visible,
+.swatch:focus-visible,
+.rim-btn:focus-visible,
+.option-row:focus-visible,
+.retry-btn:focus-visible,
+.cta-btn:focus-visible,
+.cta-back:focus-visible {
+  outline: 2px solid #ff3333;
+  outline-offset: 3px;
+}
+.option-row:focus-within {
+  outline: 2px solid #ff3333;
+  outline-offset: 3px;
+}
+
+/* 3D Model Viewer Error Indicator */
+.error-hud {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(20, 6, 6, 0.95);
+  border: 2px solid #ff3333;
+  padding: 2rem;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(229, 0, 0, 0.4);
+}
+
+.error-icon {
+  font-size: 2.5rem;
+  animation: pulse 1.5s infinite;
+}
+
+.error-hud h3 {
+  font-size: 1.25rem;
+  color: #ff3333;
+  margin: 0;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+}
+
+.error-hud p {
+  font-size: 0.875rem;
+  color: #ccc;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.retry-btn {
+  background: #ff3333;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+  background: #fff;
+  color: #ff3333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Config Load Error Layout */
+.config-error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+}
+

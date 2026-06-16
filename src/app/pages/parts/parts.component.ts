@@ -13,35 +13,38 @@ export class PartsComponent {
   parts = [
     {
       id: '01',
-      title: 'FORGED COMBUSTION ASSEMBLY',
-      category: 'ENGINE DYNAMICS',
-      desc: 'Bespoke high-compression pistons machined from aerospace-grade aluminum. Engineered to withstand peak cylinder pressures exceeding 220 bar.',
+      title: 'Performance brake pads',
+      category: 'Brake pads',
+      desc: 'Bespoke carbon-ceramic compounds designed for high-thermal dissipation and zero brake fade under extreme conditions.',
+      img: 'https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=800&q=80',
       specs: [
-        { label: 'MATERIAL', value: 'AL-2618 FORGED' },
-        { label: 'COMPRESSION', value: '12.5:1 RATIO' },
-        { label: 'TOLERANCE', value: '±0.002 MM' }
+        { label: 'Material', value: 'Carbon-ceramic' },
+        { label: 'Operating temperature', value: 'Up to 800°C' },
+        { label: 'Friction coefficient', value: '0.45µ' }
       ]
     },
     {
       id: '02',
-      title: 'COILOVER KINETICS SYSTEM',
-      category: 'SUSPENSION DYNAMICS',
-      desc: 'Double-adjustable dampers featuring valve structures calibrated for high-frequency rebound control and architectural weight transfer profiles.',
+      title: 'Forged alloy rims',
+      category: 'Alloy rims',
+      desc: 'Ultra-lightweight multi-spoke monoblock forged aluminum rims that reduce unsprung mass and improve steering response.',
+      img: 'https://images.unsplash.com/photo-1611245089332-9df7be12d09f?auto=format&fit=crop&w=800&q=80',
       specs: [
-        { label: 'DAMPING', value: '2-WAY ADJUSTABLE' },
-        { label: 'SPRING RATE', value: '120 N/MM' },
-        { label: 'COATING', value: 'DIAMOND-LIKE CARBON' }
+        { label: 'Process', value: 'Monoblock forged' },
+        { label: 'Weight', value: '8.2 kg per wheel' },
+        { label: 'Material', value: '6061-T6 aluminum' }
       ]
     },
     {
       id: '03',
-      title: 'TITANIUM EXHAUST SYSTEM',
-      category: 'THERMAL FLUIDICS',
-      desc: 'An ultra-lightweight, backpressure-optimized manifold system crafted from grade-5 titanium. Features hand-purged TIG welds and progressive expansion chambers to maximize exhaust velocity scavenging.',
+      title: 'High-flow oil filter',
+      category: 'Oil filter',
+      desc: 'Synthetic micro-glass media designed to filter down to 10 microns while maintaining high flow rates for engine protection.',
+      img: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80',
       specs: [
-        { label: 'MATERIAL', value: 'GRADE-5 AL-TI-V' },
-        { label: 'WEIGHT REDUCTION', value: '45% VS INCONEL' },
-        { label: 'TOLERANCE', value: '±0.05 MM WELD DEV' }
+        { label: 'Filtration efficiency', value: '99% at 10 microns' },
+        { label: 'Housing material', value: 'Heavy-gauge steel' },
+        { label: 'Bypass valve', value: '2.5 bar setting' }
       ]
     }
   ];

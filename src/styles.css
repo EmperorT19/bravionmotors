@@ -20,6 +20,7 @@ html, body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-mono);
+  font-size: 16px; /* Body text: 16px */
   overflow-x: hidden;
   height: 100%;
 }
@@ -81,27 +82,27 @@ html, body {
   padding-bottom: 15vh;
 }
 
-/* Typography Classes */
+/* Typography Classes (Cap at 52px max) */
 .huge-text {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 15vw, 18rem);
-  line-height: 0.85;
+  font-size: clamp(32px, 6vw, 52px); /* Hero headline: 32-52px max */
+  line-height: 1.0;
   text-transform: uppercase;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.03em;
   font-weight: 800;
 }
 
 .monolithic-number {
   font-family: var(--font-display);
-  font-size: clamp(6rem, 25vw, 24rem);
-  line-height: 0.75;
+  font-size: 52px; /* Nothing above 52px anywhere */
+  line-height: 1.0;
   font-weight: 800;
   color: var(--text);
-  letter-spacing: -0.07em;
+  letter-spacing: -0.05em;
 }
 
 .section-label {
-  font-size: 0.85rem;
+  font-size: 14px; /* Specs / labels: 14px */
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: #888888;

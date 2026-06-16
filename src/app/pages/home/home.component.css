@@ -19,7 +19,8 @@
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.65; /* Increased from 0.35 to make it clearer */
+  filter: brightness(1.1) contrast(1.1); /* Pop details and contrast */
   transition: transform 0.1s ease-out;
 }
 
@@ -44,7 +45,7 @@
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E"); /* Reduced noise from 0.15 to 0.08 for clarity */
 }
 
 .hero-header {
@@ -216,10 +217,10 @@
 
 .story-p {
   font-family: var(--font-mono);
-  font-size: clamp(1.1rem, 3vw, 1.8rem);
-  line-height: 1.5;
+  font-size: 16px; /* Body text: 16px */
+  line-height: 1.6;
   color: #ffffff; /* Contrast Punch */
-  font-weight: 800;
+  font-weight: 400;
 }
 
 /* SECTION 3: STATS & TESTIMONIALS */
@@ -248,18 +249,19 @@
 
 .stat-num {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: 52px; /* Nothing above 52px anywhere */
   font-weight: 800;
-  line-height: 0.9;
+  line-height: 1.0;
   letter-spacing: -0.05em;
   color: #ffffff; /* High Contrast */
 }
 
 .stat-desc {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 14px; /* Specs / labels: 14px */
   letter-spacing: 0.15em;
   color: #888888;
+  margin-top: 0.5rem;
 }
 
 .testimonials-header {
@@ -272,7 +274,7 @@
 
 .testimonials-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 28px; /* Section headings: 24–32px */
   font-weight: 800;
   letter-spacing: 0.05em;
   color: #ffffff;
@@ -304,7 +306,7 @@
 
 .testimonial-text {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 16px; /* Body text: 16px */
   line-height: 1.6;
   color: #ffffff;
   margin-bottom: 1.5rem;
@@ -312,7 +314,7 @@
 
 .testimonial-author {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 14px; /* Specs / labels: 14px */
   letter-spacing: 0.1em;
   color: #ff0000;
   font-weight: 700;
@@ -339,18 +341,18 @@
 
 .cfd-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(24px, 4vw, 32px); /* Section headings: 24–32px */
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.04em;
-  line-height: 0.95;
+  line-height: 1.0;
   margin-bottom: 2rem;
   color: #ffffff;
 }
 
 .cfd-desc {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 16px; /* Body text: 16px */
   line-height: 1.6;
   color: #888888;
   margin-bottom: 3rem;
@@ -370,14 +372,14 @@
   border-bottom: 1px solid #1a1a1a;
   padding-bottom: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 14px; /* Specs / labels: 14px */
   color: #ffffff;
 }
 
 .cfd-row.header-row {
   border-bottom: 1px solid #333333;
   color: #666666;
-  font-size: 0.75rem;
+  font-size: 14px; /* Specs / labels: 14px */
   letter-spacing: 0.1em;
   padding-bottom: 0.8rem;
 }
@@ -446,13 +448,13 @@
 
 .hub-number {
   font-family: var(--font-mono);
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: 14px; /* Specs / labels: 14px */
   color: #555555;
 }
 
 .hub-text {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(24px, 4vw, 32px); /* Section headings: 24–32px */
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.03em;

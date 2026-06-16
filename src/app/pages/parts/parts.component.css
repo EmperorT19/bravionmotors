@@ -111,10 +111,16 @@
   align-items: center;
 }
 
-.part-svg {
+.part-img {
   width: 100%;
-  height: auto;
-  max-height: 50vh;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visual-container:hover .part-img {
+  transform: scale(1.05);
 }
 
 /* Mobile responsive adjustments */

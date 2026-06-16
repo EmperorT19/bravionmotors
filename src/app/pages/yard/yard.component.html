@@ -3,12 +3,12 @@
   <!-- HEADER -->
   <header class="yard-hero viewport-section">
     <div class="underline-wrapper" appAnimate="reveal-left">
-      <span class="section-label">02 / VEHICLE FLEET</span>
+      <span class="section-label">02 / Vehicle fleet</span>
       <svg class="underline-svg" viewBox="0 0 100 10">
         <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
       </svg>
     </div>
-    <h1 class="huge-text" appAnimate="reveal-right">THE YARD</h1>
+    <h1 class="huge-text" appAnimate="reveal-right">The yard</h1>
     <p class="yard-intro-desc" appAnimate="reveal-up">
       40 units on the ground. Imported clean from Japan or verified local trade-ins. Inspect, test, drive out.
     </p>
@@ -17,18 +17,18 @@
   <!-- FILTER CONTROLS -->
   <div class="filter-controls-container" appAnimate="reveal-up">
     <div class="filter-scroll-wrapper">
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'All'" (click)="setFilter('All')">ALL</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Toyota'" (click)="setFilter('Toyota')">TOYOTA</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Subaru'" (click)="setFilter('Subaru')">SUBARU</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Nissan'" (click)="setFilter('Nissan')">NISSAN</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mitsubishi'" (click)="setFilter('Mitsubishi')">MITSUBISHI</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'All'" (click)="setFilter('All')">All</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Toyota'" (click)="setFilter('Toyota')">Toyota</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Subaru'" (click)="setFilter('Subaru')">Subaru</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Nissan'" (click)="setFilter('Nissan')">Nissan</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mitsubishi'" (click)="setFilter('Mitsubishi')">Mitsubishi</button>
       <button class="filter-pill-btn" [class.active]="selectedFilter === 'BMW'" (click)="setFilter('BMW')">BMW</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mercedes'" (click)="setFilter('Mercedes')">MERCEDES</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Under 1M'" (click)="setFilter('Under 1M')">UNDER 1M</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Under 500K'" (click)="setFilter('Under 500K')">UNDER 500K</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mercedes'" (click)="setFilter('Mercedes')">Mercedes</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Under 1M'" (click)="setFilter('Under 1M')">Under 1M</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Under 500K'" (click)="setFilter('Under 500K')">Under 500K</button>
     </div>
     <div class="filter-counter">
-      SHOWING {{ filteredCars.length }} OF {{ cars.length }} UNITS
+      Showing {{ filteredCars.length }} of {{ cars.length }} units
     </div>
   </div>
 
@@ -37,9 +37,9 @@
     @if (filteredCars.length === 0) {
       <div class="no-results-message" appAnimate="reveal-up">
         <span class="no-results-icon">📭</span>
-        <h3 class="no-results-title">NO VEHICLES FOUND</h3>
+        <h3 class="no-results-title">No vehicles found</h3>
         <p class="no-results-desc">No units match the selected criteria. Try resetting the filters.</p>
-        <button class="brutalist-btn reset-btn" (click)="setFilter('All')">SHOW ALL CARS</button>
+        <button class="brutalist-btn reset-btn" (click)="setFilter('All')">Show all cars</button>
       </div>
     } @else {
       <div class="inventory-grid">
@@ -53,8 +53,7 @@
               <img [src]="car.img" 
                    class="placeholder-img car-inventory-img" 
                    [alt]="'Photo of ' + car.fullName"
-                   [style.filter]="activeFinishes[car.name] === 'RED' ? 'brightness(1.2) saturate(1.4) sepia(0.25) hue-rotate(-30deg) saturate(2.5)' : activeFinishes[car.name] === 'STEALTH' ? 'brightness(0.65) saturate(0.85) contrast(1.25)' : activeFinishes[car.name] === 'CARBON' ? 'brightness(0.85) saturate(0.9) contrast(1.15) grayscale(0.4)' : 'brightness(1.2) saturate(1.3)'">
-              <div class="card-paint-code">{{ activeFinishes[car.name] || 'RAW' }}</div>
+                   loading="lazy">
             </div>
 
             <div class="car-card-body">
@@ -63,47 +62,37 @@
                 <h3 class="car-title">{{ car.fullName }}</h3>
               </div>
 
-              <p class="car-desc">{{ car.desc }}</p>
-
-              <!-- Color Options -->
-              <div class="car-finishes">
-                <span class="finish-lbl">PAINT:</span>
-                <div class="finish-triggers">
-                  <button class="color-dot-btn" [class.active]="activeFinishes[car.name] === 'RAW SILV'" (click)="selectFinish(car.name, 'RAW SILV')" title="Raw Silver">
-                    <span class="dot-color raw-silver-dot"></span>
-                  </button>
-                  <button class="color-dot-btn" [class.active]="activeFinishes[car.name] === 'STEALTH'" (click)="selectFinish(car.name, 'STEALTH')" title="Stealth Matte">
-                    <span class="dot-color stealth-black-dot"></span>
-                  </button>
-                  <button class="color-dot-btn" [class.active]="activeFinishes[car.name] === 'CARBON'" (click)="selectFinish(car.name, 'CARBON')" title="Forged Carbon">
-                    <span class="dot-color carbon-grey-dot"></span>
-                  </button>
-                  <button class="color-dot-btn" [class.active]="activeFinishes[car.name] === 'RED'" (click)="selectFinish(car.name, 'RED')" title="Performance Red">
-                    <span class="dot-color perf-red-dot"></span>
-                  </button>
-                </div>
-              </div>
-
               <!-- Technical Spec List -->
               <div class="car-specs-box">
                 <div class="car-spec-item">
-                  <span class="spec-lbl">ENGINE</span>
+                  <span class="spec-lbl">Year</span>
+                  <span class="spec-val">{{ car.year }}</span>
+                </div>
+                <div class="car-spec-item">
+                  <span class="spec-lbl">Engine</span>
                   <span class="spec-val">{{ car.engine }}</span>
                 </div>
                 <div class="car-spec-item">
-                  <span class="spec-lbl">GEARBOX</span>
-                  <span class="spec-val">{{ car.transmission }}</span>
+                  <span class="spec-lbl">Fuel type</span>
+                  <span class="spec-val">{{ car.fuelType }}</span>
                 </div>
                 <div class="car-spec-item">
-                  <span class="spec-lbl">DRIVETRAIN</span>
-                  <span class="spec-val">{{ car.drivetrain }}</span>
+                  <span class="spec-lbl">Power</span>
+                  <span class="spec-val">{{ car.power }}</span>
+                </div>
+                <div class="car-spec-item">
+                  <span class="spec-lbl">Torque</span>
+                  <span class="spec-val">{{ car.torque }}</span>
                 </div>
               </div>
 
               <!-- Price & Call to Action -->
               <div class="car-card-footer">
                 <span class="car-price">{{ car.price }}</span>
-                <a href="tel:+254712345678" class="inquire-btn">INQUIRE</a>
+                <div class="action-buttons-group">
+                  <!-- <a [routerLink]="['/configure']" [queryParams]="{model: car.name}" class="configure-btn">Configure</a> -->
+                  <a href="tel:+254712345678" class="inquire-btn">Inquire</a>
+                </div>
               </div>
 
             </div>
