@@ -24,11 +24,7 @@
       <div class="hud-spec"><span class="spec-k">Drive</span><span class="spec-v">{{ selectedModel.specs.drive }}</span></div>
       <div class="hud-spec"><span class="spec-k">Year</span><span class="spec-v">{{ selectedModel.specs.year }}</span></div>
     </div>
-    <div class="hud-price-badge">
-      <span class="price-label">TOTAL</span>
-      <span class="price-value">{{ displayedPrice | number }}</span>
-      <span class="price-currency">KES</span>
-    </div>
+
   </div>
 
   <!-- ═══ MAIN HUD GRID (NO SCROLLING) ═════════════════════════ -->
@@ -134,8 +130,6 @@
         </div>
         <div class="ctrl-meta">
           <span>{{ selectedPaint.name }}</span>
-          <span class="ctrl-price" *ngIf="selectedPaint.price > 0">+{{ selectedPaint.price | number }} KES</span>
-          <span class="ctrl-price" *ngIf="selectedPaint.price === 0">INCLUDED</span>
         </div>
       </div>
 
@@ -152,7 +146,6 @@
             <img [src]="r.img" [alt]="r.name" class="rim-btn-img">
             <div class="rim-btn-info">
               <span>{{ r.name }}</span>
-              <span class="ctrl-price">{{ r.price > 0 ? ('+' + (r.price | number) + ' KES') : 'INCL.' }}</span>
             </div>
           </button>
         </div>
@@ -175,7 +168,6 @@
               <span class="option-name">{{ o.name }}</span>
               <span class="option-desc">{{ o.desc }}</span>
             </div>
-            <span class="ctrl-price">+{{ o.price | number }}</span>
           </label>
         </div>
       </div>

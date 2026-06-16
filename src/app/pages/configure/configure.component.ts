@@ -390,7 +390,7 @@ export class ConfigureComponent implements OnInit, OnDestroy {
   get whatsappLink(): string {
     if (!this.selectedModel) return '';
     const opts = this.selectedOptions.length
-      ? this.selectedOptions.map(o => `• ${o.name} (+${o.price.toLocaleString()} KES)`).join('\n')
+      ? this.selectedOptions.map(o => `• ${o.name}`).join('\n')
       : 'None';
     const msg =
       `Hi Bravion Motors — custom 3D build request:\n\n` +
@@ -398,7 +398,6 @@ export class ConfigureComponent implements OnInit, OnDestroy {
       `Paint : ${this.selectedPaint.name}\n` +
       `Rims  : ${this.selectedRims.name}\n` +
       `Extras: ${opts}\n\n` +
-      `Total : ${this.totalPrice.toLocaleString()} KES\n\n` +
       `Please confirm availability and lead time. Thank you.`;
     return `https://wa.me/254712345678?text=${encodeURIComponent(msg)}`;
   }

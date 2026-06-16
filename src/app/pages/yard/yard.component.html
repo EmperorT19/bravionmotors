@@ -10,7 +10,7 @@
     </div>
     <h1 class="huge-text" appAnimate="reveal-right">The yard</h1>
     <p class="yard-intro-desc" appAnimate="reveal-up">
-      40 units on the ground. Imported clean from Japan or verified local trade-ins. Inspect, test, drive out.
+      100+ premium units on the ground. Imported clean or verified local trade-ins. Inspect, test, drive out.
     </p>
   </header>
 
@@ -18,14 +18,15 @@
   <div class="filter-controls-container" appAnimate="reveal-up">
     <div class="filter-scroll-wrapper">
       <button class="filter-pill-btn" [class.active]="selectedFilter === 'All'" (click)="setFilter('All')">All</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Land Rover'" (click)="setFilter('Land Rover')">Land Rover</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mercedes-Benz'" (click)="setFilter('Mercedes-Benz')">Mercedes-Benz</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'BMW'" (click)="setFilter('BMW')">BMW</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Volkswagen'" (click)="setFilter('Volkswagen')">Volkswagen</button>
+      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Audi'" (click)="setFilter('Audi')">Audi</button>
       <button class="filter-pill-btn" [class.active]="selectedFilter === 'Toyota'" (click)="setFilter('Toyota')">Toyota</button>
       <button class="filter-pill-btn" [class.active]="selectedFilter === 'Subaru'" (click)="setFilter('Subaru')">Subaru</button>
       <button class="filter-pill-btn" [class.active]="selectedFilter === 'Nissan'" (click)="setFilter('Nissan')">Nissan</button>
       <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mitsubishi'" (click)="setFilter('Mitsubishi')">Mitsubishi</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'BMW'" (click)="setFilter('BMW')">BMW</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Mercedes'" (click)="setFilter('Mercedes')">Mercedes</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Under 1M'" (click)="setFilter('Under 1M')">Under 1M</button>
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'Under 500K'" (click)="setFilter('Under 500K')">Under 500K</button>
     </div>
     <div class="filter-counter">
       Showing {{ filteredCars.length }} of {{ cars.length }} units
@@ -34,7 +35,7 @@
 
   <!-- CAR INVENTORY GRID -->
   <section class="inventory-section">
-    @if (filteredCars.length === 0) {
+    @if (groupedCarsByBrand.length === 0) {
       <div class="no-results-message" appAnimate="reveal-up">
         <span class="no-results-icon">📭</span>
         <h3 class="no-results-title">No vehicles found</h3>
@@ -42,64 +43,78 @@
         <button class="brutalist-btn reset-btn" (click)="setFilter('All')">Show all cars</button>
       </div>
     } @else {
-      <div class="inventory-grid">
-        @for (car of filteredCars; track car.name) {
-          <div class="car-card filtered-card-item" 
-               [attr.data-brand]="car.brand" 
-               [attr.data-price]="car.priceVal"
-               appAnimate="reveal-up">
-            
-            <div class="car-visual-wrapper">
-              <img [src]="car.img" 
-                   class="placeholder-img car-inventory-img" 
-                   [alt]="'Photo of ' + car.fullName"
-                   loading="lazy">
+      @for (brand of groupedCarsByBrand; track brand.id) {
+        <div class="brand-group-section" appAnimate="reveal-up">
+          <div class="brand-section-header">
+            <div class="underline-wrapper">
+              <h2 class="brand-group-title">{{ brand.name }}</h2>
+              <svg class="underline-svg" viewBox="0 0 100 10">
+                <line x1="0" y1="5" x2="100" y2="5" stroke="#ff0000" stroke-width="2" class="underline-line" />
+              </svg>
             </div>
-
-            <div class="car-card-body">
-              <div class="car-identity">
-                <span class="car-year">{{ car.year }} // {{ car.mileage }}</span>
-                <h3 class="car-title">{{ car.fullName }}</h3>
-              </div>
-
-              <!-- Technical Spec List -->
-              <div class="car-specs-box">
-                <div class="car-spec-item">
-                  <span class="spec-lbl">Year</span>
-                  <span class="spec-val">{{ car.year }}</span>
-                </div>
-                <div class="car-spec-item">
-                  <span class="spec-lbl">Engine</span>
-                  <span class="spec-val">{{ car.engine }}</span>
-                </div>
-                <div class="car-spec-item">
-                  <span class="spec-lbl">Fuel type</span>
-                  <span class="spec-val">{{ car.fuelType }}</span>
-                </div>
-                <div class="car-spec-item">
-                  <span class="spec-lbl">Power</span>
-                  <span class="spec-val">{{ car.power }}</span>
-                </div>
-                <div class="car-spec-item">
-                  <span class="spec-lbl">Torque</span>
-                  <span class="spec-val">{{ car.torque }}</span>
-                </div>
-              </div>
-
-              <!-- Price & Call to Action -->
-              <div class="car-card-footer">
-                <span class="car-price">{{ car.price }}</span>
-                <div class="action-buttons-group">
-                  <!-- <a [routerLink]="['/configure']" [queryParams]="{model: car.name}" class="configure-btn">Configure</a> -->
-                  <a href="tel:+254712345678" class="inquire-btn">Inquire</a>
-                </div>
-              </div>
-
-            </div>
-
           </div>
-        }
-      </div>
+          
+          <div class="inventory-grid">
+            @for (car of brand.cars; track car.id) {
+              <div class="car-card filtered-card-item" 
+                   [attr.data-brand]="car.brand" 
+                   appAnimate="reveal-up">
+                
+                <div class="car-visual-wrapper">
+                  <img [src]="car.img" 
+                       class="placeholder-img car-inventory-img" 
+                       [alt]="'Photo of ' + car.fullName"
+                       loading="lazy">
+                </div>
+
+                <div class="car-card-body">
+                  <div class="car-identity">
+                    <span class="car-year">{{ car.year }} // {{ car.mileage }}</span>
+                    <h3 class="car-title">{{ car.fullName }}</h3>
+                  </div>
+
+                  <!-- Technical Spec List -->
+                  <div class="car-specs-box">
+                    <div class="car-spec-item">
+                      <span class="spec-lbl">Engine</span>
+                      <span class="spec-val">{{ car.engine }}</span>
+                    </div>
+                    <div class="car-spec-item">
+                      <span class="spec-lbl">Transmission</span>
+                      <span class="spec-val">{{ car.transmission }}</span>
+                    </div>
+                    <div class="car-spec-item">
+                      <span class="spec-lbl">Drivetrain</span>
+                      <span class="spec-val">{{ car.drivetrain }}</span>
+                    </div>
+                    <div class="car-spec-item">
+                      <span class="spec-lbl">Fuel type</span>
+                      <span class="spec-val">{{ car.fuelType }}</span>
+                    </div>
+                    <div class="car-spec-item">
+                      <span class="spec-lbl">Power</span>
+                      <span class="spec-val">{{ car.power }}</span>
+                    </div>
+                    <div class="car-spec-item">
+                      <span class="spec-lbl">Torque</span>
+                      <span class="spec-val">{{ car.torque }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Call to Action (Full width inquiry) -->
+                  <div class="car-card-footer">
+                    <div class="action-buttons-group">
+                      <a href="tel:+254712345678" class="inquire-btn">Inquire Details</a>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            }
+          </div>
+        </div>
+      }
     }
   </section>
 
