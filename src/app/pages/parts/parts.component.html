@@ -2,43 +2,46 @@
   
   <!-- PARTS HEADER -->
   <header class="parts-hero viewport-section">
-    <span class="section-label" appAnimate="reveal-left">03 / Component system</span>
+    <span class="section-label" appAnimate="reveal-left">04 / Component system</span>
     <h1 class="huge-text" appAnimate="reveal-right">Parts</h1>
     <p class="parts-intro-desc" appAnimate="reveal-up">
       OEM and aftermarket components. Same-day sourcing for common models. Machined to micro-tolerances.
     </p>
   </header>
 
-  <!-- PARTS SECTIONS -->
-  @for (part of parts; track part.id) {
-    <section class="part-item-section viewport-section">
-      <div class="part-grid">
-        
-        <!-- Left Side: Specs and Info -->
-        <div class="part-info">
-          <span class="part-index" appAnimate="reveal-left">{{ part.id }} // {{ part.category }}</span>
-          <h2 class="part-title" appAnimate="reveal-left">{{ part.title }}</h2>
-          <p class="part-desc" appAnimate="reveal-up">{{ part.desc }}</p>
+  <!-- PARTS GRID -->
+  <section class="parts-section">
+    <div class="parts-grid">
+      @for (part of parts; track part.id) {
+        <div class="part-card" appAnimate="reveal-up">
           
-          <div class="part-specs" appAnimate="reveal-up">
-            @for (spec of part.specs; track spec.label) {
-              <div class="part-spec-row">
-                <span class="part-spec-label">{{ spec.label }}</span>
-                <span class="part-spec-value">{{ spec.value }}</span>
-              </div>
-            }
-          </div>
-        </div>
-
-        <!-- Right Side: Beautiful Component Image -->
-        <div class="part-visual">
-          <div class="visual-container" appAnimate="reveal-scale">
+          <!-- Part Visual -->
+          <div class="part-visual-wrapper">
             <img [src]="part.img" class="part-img" [alt]="part.title" loading="lazy">
           </div>
+          
+          <!-- Part Card Body -->
+          <div class="part-card-body">
+            <div class="part-identity">
+              <span class="part-index">{{ part.id }} // {{ part.category }}</span>
+              <h3 class="part-title">{{ part.title }}</h3>
+            </div>
+            
+            <p class="part-desc">{{ part.desc }}</p>
+            
+            <div class="part-specs">
+              @for (spec of part.specs; track spec.label) {
+                <div class="part-spec-row">
+                  <span class="part-spec-label">{{ spec.label }}</span>
+                  <span class="part-spec-value">{{ spec.value }}</span>
+                </div>
+              }
+            </div>
+          </div>
+          
         </div>
-
-      </div>
-    </section>
-  }
+      }
+    </div>
+  </section>
 
 </div>

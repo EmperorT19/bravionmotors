@@ -32,6 +32,41 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.setupIntersectionObserver();
+    this.animateHero();
+  }
+
+  animateHero() {
+    if (typeof window === 'undefined') return;
+
+    // Initial state: car off-screen right, red banner fully covering
+    document.documentElement.style.setProperty('--progress', '110');
+
+    // Smooth transition from right to left
+    setTimeout(() => {
+      const duration = 8000; // 8 seconds
+      const start = 90;
+      const end = -45; // Move completely past left side of screen
+      const startTime = performance.now();
+
+      const animate = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // easeInOutCubic easing for ultra-smooth movement
+        const ease = progress < 0.5 
+          ? 4 * progress * progress * progress 
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+          
+        const currentValue = start + (end - start) * ease;
+        document.documentElement.style.setProperty('--progress', currentValue.toString());
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    }, 400); // 400ms delay for visual layout settling
   }
 
   setupIntersectionObserver() {
