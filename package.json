@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "copy-logos": "node -e \"const fs = require('fs'); fs.copyFileSync('public/Bravion Logo (1).jpeg', 'public/images/logo-light.jpg'); fs.copyFileSync('public/Bravion Logo (2).jpeg', 'public/images/logo-dark.jpg');\""
   },
   "private": true,
   "dependencies": {

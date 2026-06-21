@@ -23,10 +23,11 @@
   margin-bottom: 1rem;
 }
 
-.footer-logo-svg {
+.footer-logo-img {
   display: block;
-  height: 42px;
+  height: 96px;
   width: auto;
+  transition: opacity 0.3s ease;
 }
 
 .footer-motto {

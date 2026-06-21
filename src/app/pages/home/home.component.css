@@ -234,15 +234,15 @@
   filter: drop-shadow(-15px 20px 15px rgba(0, 0, 0, 0.5));
 }
 
-/* SECTION 2: ABOUT (FULLY SATURATED RED, NO SOFT SHADOWS, HARD BORDERS) */
+/* SECTION 2: ABOUT (SLEEK DARK THEME WITH ACCENTS) */
 .about-section.red-punch-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 14vh 8vw;
-  background-color: #ff0000; /* Fully Saturated Red */
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
+  background-color: #0a0a0a;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
   clip-path: polygon(0 0, 100% 4vh, 100% 100%, 0 calc(100% - 4vh)); /* Diagonal clip-path wipe */
   position: relative;
   z-index: 4;
@@ -270,7 +270,7 @@
   font-family: var(--font-mono);
   font-size: 16px; /* Body text: 16px */
   line-height: 1.6;
-  color: #ffffff; /* Contrast Punch */
+  color: #e0e0e0; /* Softer readable white */
   font-weight: 400;
 }
 
@@ -568,8 +568,13 @@
   height: clamp(200px, 30vw, 400px);
   overflow: hidden;
   margin-top: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid #222222;
   background-color: rgba(0, 0, 0, 0.1);
+  transition: border-color 0.4s ease;
+}
+
+.about-section.red-punch-section:hover .about-image-container {
+  border-color: #ff0000;
 }
 
 .about-dealership-img {
