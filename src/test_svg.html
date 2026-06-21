@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
+      padding: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    svg {
+      background: #000;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    h3 {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Testing SVG Logo Paths</h2>
+  <div class="grid">
+    <div class="card">
+      <svg width="240" height="80" viewBox="0 0 240 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0, 1) scale(0.36)">
+          <mask id="b-cutout-t1">
+            <rect x="0" y="0" width="100" height="100" fill="#ffffff" />
+            <!-- No top cutout -->
+            <!-- Bottom cutout: Trapezoid x+y = 98 -->
+            <path d="M30,68 L52,46 V78 H30 Z" fill="#000000" />
+            <polygon points="-10,72 62,0 76,10 4,82" fill="#000000" />
+          </mask>
+          <path mask="url(#b-cutout-t1)" d="M15,10 H55 C72,10 82,20 82,33 C82,43 74,47 62,48 C76,50 86,58 86,73 C86,86 72,90 55,90 H15 Z" fill="#ff1e1e" />
+        </g>
+        <text x="44" y="27" font-family="'Syne', sans-serif" font-size="19" font-weight="800" fill="#fff" letter-spacing="0.04em">BRΛVION MOTORS</text>
+      </svg>
+      <h3>Option 1: Trapezoid (x+y = 98)</h3>
+    </div>
+
+    <div class="card">
+      <svg width="240" height="80" viewBox="0 0 240 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0, 1) scale(0.36)">
+          <mask id="b-cutout-t2">
+            <rect x="0" y="0" width="100" height="100" fill="#ffffff" />
+            <!-- Bottom cutout: Trapezoid x+y = 96 -->
+            <path d="M30,66 L52,44 V78 H30 Z" fill="#000000" />
+            <polygon points="-10,72 62,0 76,10 4,82" fill="#000000" />
+          </mask>
+          <path mask="url(#b-cutout-t2)" d="M15,10 H55 C72,10 82,20 82,33 C82,43 74,47 62,48 C76,50 86,58 86,73 C86,86 72,90 55,90 H15 Z" fill="#ff1e1e" />
+        </g>
+        <text x="44" y="27" font-family="'Syne', sans-serif" font-size="19" font-weight="800" fill="#fff" letter-spacing="0.04em">BRΛVION MOTORS</text>
+      </svg>
+      <h3>Option 2: Trapezoid (x+y = 96)</h3>
+    </div>
+
+    <div class="card">
+      <svg width="240" height="80" viewBox="0 0 240 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0, 1) scale(0.36)">
+          <mask id="b-cutout-t3">
+            <rect x="0" y="0" width="100" height="100" fill="#ffffff" />
+            <!-- Bottom cutout: Trapezoid x+y = 100 -->
+            <path d="M30,70 L52,48 V78 H30 Z" fill="#000000" />
+            <polygon points="-10,72 62,0 76,10 4,82" fill="#000000" />
+          </mask>
+          <path mask="url(#b-cutout-t3)" d="M15,10 H55 C72,10 82,20 82,33 C82,43 74,47 62,48 C76,50 86,58 86,73 C86,86 72,90 55,90 H15 Z" fill="#ff1e1e" />
+        </g>
+        <text x="44" y="27" font-family="'Syne', sans-serif" font-size="19" font-weight="800" fill="#fff" letter-spacing="0.04em">BRΛVION MOTORS</text>
+      </svg>
+      <h3>Option 3: Trapezoid (x+y = 100)</h3>
+    </div>
+
+    <div class="card">
+      <svg width="240" height="80" viewBox="0 0 240 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0, 1) scale(0.36)">
+          <mask id="b-cutout-t4">
+            <rect x="0" y="0" width="100" height="100" fill="#ffffff" />
+            <!-- Bottom cutout: Trapezoid x+y = 102 -->
+            <path d="M30,72 L52,50 V78 H30 Z" fill="#000000" />
+            <polygon points="-10,72 62,0 76,10 4,82" fill="#000000" />
+          </mask>
+          <path mask="url(#b-cutout-t4)" d="M15,10 H55 C72,10 82,20 82,33 C82,43 74,47 62,48 C76,50 86,58 86,73 C86,86 72,90 55,90 H15 Z" fill="#ff1e1e" />
+        </g>
+        <text x="44" y="27" font-family="'Syne', sans-serif" font-size="19" font-weight="800" fill="#fff" letter-spacing="0.04em">BRΛVION MOTORS</text>
+      </svg>
+      <h3>Option 4: Trapezoid (x+y = 102)</h3>
+    </div>
+  </div>
+</body>
+</html>

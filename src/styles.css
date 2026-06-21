@@ -1,11 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@700;800&display=swap');
+@font-face {
+  font-family: 'YDYoonche';
+  src: url('/YDYooncheB.ttf') format('truetype'),
+       url('/bravionmotors/YDYooncheB.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --bg: #0a0a0a;
   --text: #ffffff;
   --accent: #e50000;
-  --font-display: 'Syne', sans-serif;
-  --font-mono: 'Space Grotesk', sans-serif;
+  --font-display: 'YDYoonche', sans-serif;
+  --font-mono: 'YDYoonche', sans-serif;
   --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
