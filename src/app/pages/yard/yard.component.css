@@ -82,7 +82,7 @@
   border: 1px solid #ffffff;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.6rem 1.4rem;
   cursor: pointer;
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
@@ -105,7 +105,7 @@
   font-size: 0.8rem;
   color: #666666;
   letter-spacing: 0.1em;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* No Results Panel */
@@ -128,7 +128,7 @@
 .no-results-title {
   font-family: var(--font-display);
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: normal;
   color: #ffffff;
 }
 
@@ -220,7 +220,7 @@
   background-color: rgba(0, 0, 0, 0.75);
   padding: 0.2rem 0.6rem;
   letter-spacing: 0.15em;
-  font-weight: 700;
+  font-weight: 500;
   z-index: 3;
   border: 1px solid #222;
 }
@@ -242,7 +242,7 @@
 .car-year {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #ff0000;
   letter-spacing: 0.1em;
 }
@@ -250,7 +250,7 @@
 .car-title {
   font-family: var(--font-display);
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: normal;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #ffffff;
@@ -265,7 +265,7 @@
 .configure-btn, .inquire-btn {
   font-family: var(--font-mono);
   font-size: 14px; /* Specs / labels: 14px */
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   padding: 0.6rem 1rem;
   transition: all 0.3s ease;
@@ -348,7 +348,7 @@
 .brand-group-title {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 800;
+  font-weight: normal;
   text-transform: uppercase;
   color: #ffffff;
   letter-spacing: -0.03em;

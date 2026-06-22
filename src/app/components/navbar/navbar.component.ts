@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   processLogo(): void {
     const img = new Image();
-    img.src = 'images/logo-dark.jpg';
+    img.src = 'Bravion Logo (2).jpeg';
     img.onload = () => {
       const canvas = document.createElement('canvas');
       canvas.width = img.width;
@@ -32,8 +32,7 @@ export class NavbarComponent implements OnInit {
           const r = data[i];
           const g = data[i + 1];
           const b = data[i + 2];
-
-          // Make the black/dark background transparent
+          // Make dark background transparent
           if (r < 45 && g < 45 && b < 45) {
             data[i + 3] = 0; // Alpha = 0
           }

@@ -23,7 +23,13 @@ export class YardComponent {
     { id: 'mercedes', name: 'Mercedes-Benz' },
     { id: 'landrover', name: 'Land Rover' },
     { id: 'volkswagen', name: 'Volkswagen' },
-    { id: 'audi', name: 'Audi' }
+    { id: 'audi', name: 'Audi' },
+    { id: 'porsche', name: 'Porsche' },
+    { id: 'jeep', name: 'Jeep' },
+    { id: 'lexus', name: 'Lexus' },
+    { id: 'lamborghini', name: 'Lamborghini' },
+    { id: 'bentley', name: 'Bentley' },
+    { id: 'ferrari', name: 'Ferrari' }
   ];
 
   cars = CARS_DATA;

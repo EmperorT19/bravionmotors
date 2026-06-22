@@ -67,13 +67,13 @@
   font-size: 11px;
   color: #ff3333;
   letter-spacing: 0.2em;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .hud-model-name {
   font-family: var(--font-display);
   font-size: 26px;
-  font-weight: 900;
+  font-weight: normal;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: #fff;
@@ -106,7 +106,7 @@
 .spec-v {
   font-size: 14px;
   color: #fff;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 2px;
 }
 
@@ -121,12 +121,12 @@
   font-size: 10px;
   color: #ff3333;
   letter-spacing: 0.25em;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .price-value {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
@@ -135,7 +135,7 @@
 .price-currency {
   font-size: 12px;
   color: #ff3333;
-  font-weight: 700;
+  font-weight: 500;
   margin-left: 3px;
 }
 
@@ -277,7 +277,7 @@ model-viewer.car-canvas.ready {
   align-items: center;
   gap: 15px;
   color: #ff3333;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.15em;
 }
@@ -317,7 +317,7 @@ model-viewer.car-canvas.ready {
 
 .carousel-title {
   color: #fff;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .model-carousel {
@@ -384,12 +384,12 @@ model-viewer.car-canvas.ready {
 .model-card-id-h {
   font-size: 9px;
   color: #ff3333;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .model-card-name-h {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
 }
 
@@ -431,7 +431,7 @@ model-viewer.car-canvas.ready {
 .ctrl-label {
   font-size: 11px;
   color: #ff3333;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.15em;
   border-left: 2px solid #ff3333;
   padding-left: 8px;
@@ -471,7 +471,7 @@ model-viewer.car-canvas.ready {
 .swatch-inner {
   font-size: 14px;
   color: #666;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .ctrl-meta {
@@ -483,7 +483,7 @@ model-viewer.car-canvas.ready {
 
 .ctrl-price {
   color: #ff3333;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* Rims buttons */
@@ -529,7 +529,7 @@ model-viewer.car-canvas.ready {
   width: 100%;
   font-size: 12px;
   color: #fff;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* Options checkbox toggles */
@@ -574,7 +574,7 @@ model-viewer.car-canvas.ready {
 
 .option-name {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
 }
 
@@ -606,7 +606,7 @@ model-viewer.car-canvas.ready {
   background: #ff3333;
   border: 1px solid #ff3333;
   color: #fff;
-  font-weight: 700;
+  font-weight: 500;
   padding: 1rem;
   font-size: 12px;
   letter-spacing: 0.1em;

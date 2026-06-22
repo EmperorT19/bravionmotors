@@ -53,7 +53,7 @@
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   color: #ff0000;
-  font-weight: 700;
+  font-weight: 500;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
 
@@ -113,7 +113,7 @@
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.2rem 0.5rem;
   letter-spacing: 0.05em;
   z-index: 2;
@@ -129,7 +129,7 @@
 .service-card-title {
   font-family: var(--font-display);
   font-size: 24px; /* Section headings: 24-32px */
-  font-weight: 800;
+  font-weight: normal;
   letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 0.8rem;
@@ -163,13 +163,13 @@
 
 .meta-val {
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .book-service-btn {
   font-family: var(--font-mono);
   font-size: 14px; /* Specs / labels: 14px */
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   background-color: #ff0000;
   color: #ffffff;

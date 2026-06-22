@@ -71,7 +71,7 @@
 .form-title {
   font-family: var(--font-display);
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: normal;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -94,7 +94,7 @@
   font-size: 0.7rem;
   color: #666666;
   letter-spacing: 0.1em;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .brutalist-input, .brutalist-select, .brutalist-textarea {
@@ -173,7 +173,7 @@
 .card-subtitle {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
@@ -182,7 +182,7 @@
 .hours-text {
   font-family: var(--font-mono);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .hours-text.note-text {
@@ -231,7 +231,7 @@
   font-size: 0.6rem;
   color: #666666;
   letter-spacing: 0.1em;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -239,7 +239,7 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 500;
   word-break: break-all;
 }
 
@@ -298,7 +298,7 @@
     display: block;
     font-family: var(--font-mono);
     font-size: 0.9rem;
-    font-weight: 800;
+    font-weight: 500;
     color: #ffffff;
     text-decoration: none;
     padding: 1.2rem 0;
