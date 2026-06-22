@@ -340,23 +340,6 @@ export const CARS_DATA = [
     "isSpecial": false
   },
   {
-    "id": "021",
-    "name": "URUS",
-    "fullName": "Lamborghini Urus",
-    "brand": "lamborghini",
-    "year": 2021,
-    "mileage": "8,600 KM",
-    "engine": "4.0L Twin-Turbo V8",
-    "transmission": "8-Speed Automatic",
-    "drivetrain": "All-Wheel Drive (AWD)",
-    "fuelType": "Petrol",
-    "power": "641 hp",
-    "torque": "850 Nm",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/d/d5/IAA_2021%2C_Munich_%28IAA10227%29.jpg",
-    "desc": "Pristine condition Lamborghini Urus sourced with verified history.",
-    "isSpecial": false
-  },
-  {
     "id": "022",
     "name": "S580",
     "fullName": "Mercedes-Benz S580 4MATIC (W223)",
@@ -479,23 +462,6 @@ export const CARS_DATA = [
     "isSpecial": false
   },
   {
-    "id": "029",
-    "name": "F8",
-    "fullName": "Ferrari F8 Tributo",
-    "brand": "ferrari",
-    "year": 2019,
-    "mileage": "6,100 KM",
-    "engine": "3.9L Twin-Turbo V8",
-    "transmission": "7-Speed F1 Dual-Clutch",
-    "drivetrain": "Rear-Wheel Drive (RWD)",
-    "fuelType": "Petrol",
-    "power": "710 hp",
-    "torque": "770 Nm",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Ferrari_F8_Tributo,_GIMS_2019,_Le_Grand-Saconnex_(GIMS0993).jpg",
-    "desc": "Pristine condition Ferrari F8 Tributo sourced with verified history. Show unit, Geneva International Motor Show 2019.",
-    "isSpecial": false
-  },
-  {
     "id": "030",
     "name": "XM",
     "fullName": "BMW XM Label Red",
@@ -542,7 +508,7 @@ export const CARS_DATA = [
     "fuelType": "Petrol",
     "power": "659 hp",
     "torque": "900 Nm",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Bentley_Continental_GT_2020_(49384478638).jpg",
+    "img": "https://www.platinumautohaus.com/imagetag/14707/9/l/Used-2022-Bentley-Continental-GT-Speed.jpg",
     "desc": "Pristine condition Bentley Continental GT Speed sourced with verified history. Grand tourer flagship from Bentley's iconic Continental line.",
     "isSpecial": false
   },
@@ -697,23 +663,6 @@ export const CARS_DATA = [
     "torque": "625 Nm",
     "img": "https://hips.hearstapps.com/hmg-prod/images/2022-land-rover-defender-90-v8-114-1653515465.jpg",
     "desc": "Pristine condition Land Rover Defender 90 V8 sourced with verified history. The short-wheelbase V8 — 0–100 km/h in 5.0 seconds in a Defender body.",
-    "isSpecial": false
-  },
-  {
-    "id": "042",
-    "name": "HURACAN",
-    "fullName": "Lamborghini Huracan EVO",
-    "brand": "lamborghini",
-    "year": 2019,
-    "mileage": "5,400 KM",
-    "engine": "5.2L Naturally Aspirated V10",
-    "transmission": "7-Speed LDF Dual-Clutch",
-    "drivetrain": "All-Wheel Drive (AWD)",
-    "fuelType": "Petrol",
-    "power": "631 hp",
-    "torque": "600 Nm",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lamborghini_Hurac%C3%A1n_EVO%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0943%29.jpg",
-    "desc": "Pristine condition Lamborghini Huracan EVO sourced with verified history. Show unit, Geneva International Motor Show 2019. LDVI predictive dynamics control — the most technically advanced Huracan ever.",
     "isSpecial": false
   },
   {
