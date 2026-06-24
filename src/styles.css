@@ -198,3 +198,54 @@ h1, h2, h3, h4, h5, h6 {
 img {
   filter: brightness(1.15) contrast(1.05);
 }
+
+/* Premium Breadcrumbs & Back Navigation */
+.page-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  width: fit-content;
+}
+
+.breadcrumb-back-btn {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-back-btn .arrow {
+  color: var(--accent);
+  font-size: 1.1rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  line-height: 1;
+}
+
+.breadcrumb-back-btn:hover {
+  color: var(--accent);
+}
+
+.breadcrumb-back-btn:hover .arrow {
+  transform: translateX(-6px);
+}
+
+.breadcrumb-separator {
+  color: #444444;
+  font-weight: 300;
+}
+
+.current-path {
+  color: #888888;
+}
+

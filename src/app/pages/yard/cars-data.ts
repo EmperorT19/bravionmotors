@@ -763,7 +763,7 @@ export const CARS_DATA = [
     "fuelType": "Petrol",
     "power": "666 hp",
     "torque": "850 Nm",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Lamborghini_Urus_Performante_%282023%29_front.jpg",
+    "img": "https://autotrader.co.nz/cdn-cgi/image/width=845/https://autotrader.co.nz/wp-content/uploads/2023/06/Lamborghini-Urus-Performante-front-quarter-hero.jpg",
     "desc": "Pristine condition Lamborghini Urus Performante sourced with verified history. 35 kg lighter than the standard Urus, track-focused aero package — the fastest production SUV on the Nürburgring.",
     "isSpecial": false
   }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AnimateDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-parts',
   standalone: true,
-  imports: [CommonModule, AnimateDirective],
+  imports: [CommonModule, RouterModule, AnimateDirective],
   templateUrl: './parts.component.html',
   styleUrls: ['./parts.component.css']
 })
