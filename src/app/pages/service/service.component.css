@@ -16,6 +16,21 @@
   width: 100%;
 }
 
+.service-hero {
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.service-intro-desc {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #888888;
+}
+
 /* Underline draw animation */
 .underline-wrapper {
   display: inline-flex;
