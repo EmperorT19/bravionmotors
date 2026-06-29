@@ -62,6 +62,17 @@ export class HomeComponent implements OnInit {
 
         if (progress < 1) {
           requestAnimationFrame(animate);
+        } else {
+          // Scroll to the next segment (Origin story) automatically after the animation finishes
+          if (typeof window !== 'undefined') {
+            const currentScroll = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (currentScroll < 100) {
+              const nextSegment = this.el.nativeElement.querySelector('.about-section');
+              if (nextSegment) {
+                nextSegment.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }
+          }
         }
       };
 
