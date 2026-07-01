@@ -28,10 +28,6 @@
           <div class="service-card-body">
             <h3 class="service-card-title">{{ srv.title }}</h3>
             <p class="service-card-desc">{{ srv.desc }}</p>
-            <div class="service-meta">
-              <span class="meta-label">Est. turnaround:</span>
-              <span class="meta-val">{{ srv.turnaround }}</span>
-            </div>
             <a [routerLink]="['/contact']" [queryParams]="{service: srv.title}" class="book-service-btn">Book a service</a>
           </div>
         </div>

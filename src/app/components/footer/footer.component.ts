@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
 
   processLogo(): void {
     const img = new Image();
-    img.src = 'Bravion Motors black logo.jpeg';
+    img.src = 'bravion motors black.jpeg';
     img.onload = () => {
       const canvas = document.createElement('canvas');
       canvas.width = img.width;
