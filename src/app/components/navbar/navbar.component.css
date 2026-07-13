@@ -28,7 +28,7 @@
 }
 
 .brand-accent {
-  color: #e50000; /* Distinct red */
+  color: var(--accent); /* Distinct red */
 }
 
 .nav-links {
@@ -55,12 +55,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #e50000; /* Distinct red */
+  background-color: var(--accent); /* Distinct red */
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-item:hover {
-  color: #e50000;
+  color: var(--accent);
 }
 
 .nav-item:hover::after {
@@ -68,7 +68,7 @@
 }
 
 .nav-item.active {
-  color: #e50000;
+  color: var(--accent);
 }
 
 .nav-item.active::after {

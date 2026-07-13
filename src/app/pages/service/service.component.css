@@ -67,7 +67,7 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   letter-spacing: 0.15em;
-  color: #ff0000;
+  color: var(--accent);
   font-weight: 500;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
@@ -94,7 +94,7 @@
 }
 
 .service-card:hover {
-  border-color: #ff0000;
+  border-color: var(--accent);
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
 }
@@ -124,7 +124,7 @@
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: #ff0000;
+  background-color: var(--accent);
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -186,19 +186,19 @@
   font-size: 14px; /* Specs / labels: 14px */
   font-weight: 500;
   text-decoration: none;
-  background-color: #ff0000;
+  background-color: var(--accent);
   color: #ffffff;
   padding: 0.8rem 1.5rem;
   text-align: center;
-  border: 1px solid #ff0000;
+  border: 1px solid var(--accent);
   transition: all 0.3s ease;
   display: block;
 }
 
 .book-service-btn:hover {
   background-color: transparent;
-  color: #ff0000;
-  border-color: #ff0000;
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Responsive grid modifications */

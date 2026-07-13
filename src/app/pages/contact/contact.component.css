@@ -42,6 +42,7 @@
 }
 
 .underline-line {
+  stroke: var(--accent) !important;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -112,7 +113,7 @@
 }
 
 .brutalist-input:focus, .brutalist-select:focus, .brutalist-textarea:focus {
-  border-color: #ff0000;
+  border-color: var(--accent);
 }
 
 .submit-btn {
@@ -124,7 +125,7 @@
 
 /* Success Message */
 .success-message {
-  background-color: #ff0000;
+  background-color: var(--accent);
   color: #ffffff;
   padding: 2.5rem;
   border: 1px solid #ffffff;
@@ -154,7 +155,7 @@
 
 /* Right Column details */
 .hours-card {
-  background-color: #ff0000;
+  background-color: var(--accent);
   color: #ffffff;
   padding: 2.5rem;
   border: 1px solid #ffffff;
@@ -167,7 +168,7 @@
 .location-card {
   background-color: #0c0c0c !important;
   color: #ffffff !important;
-  border: 1px solid #ff0000 !important;
+  border: 1px solid var(--accent) !important;
 }
 
 .card-subtitle {
@@ -213,7 +214,7 @@
 }
 
 .quick-card:hover {
-  border-color: #ff0000;
+  border-color: var(--accent);
   box-shadow: 0 5px 30px rgba(255, 0, 0, 0.25);
 }
 
@@ -287,7 +288,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #ff0000;
+    background-color: var(--accent);
     z-index: 999;
     border-top: 1px solid #ffffff;
     text-align: center;
