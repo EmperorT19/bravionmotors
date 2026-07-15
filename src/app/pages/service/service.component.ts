@@ -107,6 +107,18 @@ export class ServiceComponent {
       title: 'Glass & Windshield Repair',
       img: 'https://h3f5ivd9.b-cdn.net/3079b912648d2044a3dda9de83a994b6.jpg',
       desc: 'Chip repair and full windshield replacement with OEM-spec glass.'
+    },
+    {
+      index: '17',
+      title: 'Cooling System Repair',
+      img: 'images/service-cooling.png',
+      desc: 'Radiator replacements, coolant flushes, and water pump servicing to ensure optimal thermal performance.'
+    },
+    {
+      index: '18',
+      title: 'Performance ECU Tuning',
+      img: 'images/service-ecu-tuning.png',
+      desc: 'Custom software remapping, dyno calibration, and speed limiter adjustments to unleash your engine\'s true potential.'
     }
   ];
 }

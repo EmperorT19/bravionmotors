@@ -729,7 +729,7 @@ export const CARS_DATA = [
     "fuelType": "Petrol",
     "power": "641 hp",
     "torque": "800 Nm",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Porsche_911_Turbo_S_%28992%29%2C_GIMS_2020%2C_Le_Grand-Saconnex.jpg",
+    "img": "https://i.pinimg.com/736x/92/76/a0/9276a056e6ca6fd0752f8049ac2b5216.jpg",
     "desc": "Pristine condition Porsche 911 Turbo S sourced with verified history. Show unit, Geneva International Motor Show 2020. 0–100 km/h in 2.7 seconds — the benchmark sports car.",
     "isSpecial": false
   },

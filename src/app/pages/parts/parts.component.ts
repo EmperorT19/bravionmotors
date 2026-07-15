@@ -395,6 +395,18 @@ export class PartsComponent {
         { label: 'Rating', value: 'API GL-5' },
         { label: 'Volume', value: '1 Litre' }
       ]
+    },
+    {
+      id: '34',
+      title: 'Performance ignition coils',
+      category: 'Ignition system',
+      desc: 'High-voltage ignition coils providing a stronger, more consistent spark for improved combustion efficiency at high boost pressures.',
+      img: 'images/part-ignition-coils.png',
+      specs: [
+        { label: 'Voltage output', value: '45,000V' },
+        { label: 'Spark energy', value: '+15% vs OEM' },
+        { label: 'Connector type', value: 'Direct OEM fitment' }
+      ]
     }
   ];
 }

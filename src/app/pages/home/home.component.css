@@ -25,7 +25,7 @@
 }
 
 .red-bg {
-  background-color: var(--accent);
+  background-color: #000000;
   z-index: 2;
   /* clip-path will track the custom property --progress */
   clip-path: polygon(0 0, calc(var(--progress, 110) * 1% + 15vw) 0, calc(var(--progress, 110) * 1% + 15vw) 100%, 0 100%);
@@ -92,9 +92,9 @@
 
 /* Centered Text */
 .hero-text {
-  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-family: 'YDYoonche', sans-serif;
   font-size: clamp(48px, 16vw, 160px);
-  font-weight: 900;
+  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.0;
@@ -109,7 +109,7 @@
 }
 
 .bravion-text {
-  color: #000000;
+  color: #ffffff;
 }
 
 .motor-text {
@@ -132,7 +132,7 @@
 }
 
 .bravion-text .hero-tagline {
-  color: #000000;
+  color: #ffffff;
 }
 
 .motor-text .hero-tagline {
@@ -165,8 +165,8 @@
   color: #000000;
 }
 
-.hero-meta.black-text-meta {
-  color: #000000;
+.hero-meta.white-text-meta {
+  color: #ffffff;
 }
 
 .hero-btns {
@@ -215,6 +215,29 @@
 .black-btn.secondary-btn:hover {
   background: #000000 !important;
   color: #ffffff !important;
+}
+
+.white-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.white-btn:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.white-btn.secondary-btn {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.white-btn.secondary-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
 }
 
 .dark-btn {
@@ -651,5 +674,23 @@
 .strip-img:hover {
   transform: scale(1.03);
   border-color: var(--accent);
+}
+
+@media (max-width: 580px) {
+  .hero-footer-overlay {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 1.5rem !important;
+  }
+  
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btns .brutalist-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
