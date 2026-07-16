@@ -130,6 +130,13 @@
   letter-spacing: 0.05em;
 }
 
+.copyright-created {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #444444;
+  letter-spacing: 0.05em;
+}
+
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
