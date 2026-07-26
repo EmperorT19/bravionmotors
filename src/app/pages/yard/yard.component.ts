@@ -35,7 +35,14 @@ export class YardComponent {
   cars = CARS_DATA;
 
   setFilter(filterName: string) {
-    this.selectedFilter = filterName;
+    const norm = (filterName || '').toLowerCase().trim();
+    if (norm === 'mercedes' || norm === 'mercedes benz' || norm === 'mercedes-benz' || norm === 'mercedesbenz') {
+      this.selectedFilter = 'Mercedes-Benz';
+    } else if (norm === 'land rover' || norm === 'landrover') {
+      this.selectedFilter = 'Land Rover';
+    } else {
+      this.selectedFilter = filterName;
+    }
   }
 
   get filteredCars() {
@@ -43,25 +50,26 @@ export class YardComponent {
       return this.cars;
     }
 
-    const filter = this.selectedFilter.toLowerCase();
+    const filter = this.selectedFilter.toLowerCase().trim();
     let brandFilter = filter;
-    if (filter === 'mercedes-benz') {
+    if (filter === 'mercedes-benz' || filter === 'mercedes benz' || filter === 'mercedes' || filter === 'mercedesbenz') {
       brandFilter = 'mercedes';
-    } else if (filter === 'land rover') {
+    } else if (filter === 'land rover' || filter === 'landrover') {
       brandFilter = 'landrover';
     }
 
-    return this.cars.filter(car => car.brand === brandFilter);
+    return this.cars.filter(car => car.brand === brandFilter || (brandFilter === 'mercedes' && car.brand === 'mercedes-benz'));
   }
 
   get groupedCarsByBrand() {
     const list = this.filteredCars;
     const groups: { [key: string]: any[] } = {};
     list.forEach(car => {
-      if (!groups[car.brand]) {
-        groups[car.brand] = [];
+      const key = (car.brand === 'mercedes-benz' || car.brand === 'mercedes') ? 'mercedes' : car.brand;
+      if (!groups[key]) {
+        groups[key] = [];
       }
-      groups[car.brand].push(car);
+      groups[key].push(car);
     });
 
     return this.brands
