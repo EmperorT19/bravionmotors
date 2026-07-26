@@ -7,7 +7,7 @@
     <span class="breadcrumb-separator">//</span>
     <span class="current-path">02 / VEHICLE FLEET</span>
   </div>
-  
+
   <!-- HEADER -->
   <header class="yard-hero">
     <h1 class="huge-text" appAnimate="reveal-right">The yard</h1>
@@ -19,13 +19,13 @@
   <!-- FILTER CONTROLS -->
   <div class="filter-controls-container" appAnimate="reveal-up">
     <div class="filter-scroll-wrapper">
-      <button class="filter-pill-btn" 
-              [class.active]="selectedFilter === 'All'" 
+      <button class="filter-pill-btn"
+              [class.active]="selectedFilter === 'All'"
               (click)="setFilter('All')"
               (touchstart)="onFilterTouch($event, 'All')">All</button>
       @for (brand of brands; track brand.id) {
-        <button class="filter-pill-btn" 
-                [class.active]="selectedFilter === brand.name" 
+        <button class="filter-pill-btn"
+                [class.active]="selectedFilter === brand.name"
                 (click)="setFilter(brand.name)"
                 (touchstart)="onFilterTouch($event, brand.name)">
           {{ brand.name }}
@@ -47,7 +47,7 @@
         <button class="brutalist-btn reset-btn" (click)="setFilter('All')">Show all cars</button>
       </div>
     } @else {
-      @for (brand of groupedCarsByBrand; track brand.id) {
+      @for (brand of groupedCarsByBrand; track brand.id + selectedFilter) {
         <div class="brand-group-section">
           <div class="brand-section-header">
             <div class="underline-wrapper">
@@ -57,15 +57,15 @@
               </svg>
             </div>
           </div>
-          
+
           <div class="inventory-grid">
-            @for (car of brand.cars; track car.id) {
-              <div class="car-card filtered-card-item" 
+            @for (car of brand.cars; track car.id + selectedFilter) {
+              <div class="car-card filtered-card-item"
                    [attr.data-brand]="car.brand">
-                
+
                 <div class="car-visual-wrapper">
-                  <img [src]="car.img" 
-                       class="placeholder-img car-inventory-img" 
+                  <img [src]="car.img"
+                       class="placeholder-img car-inventory-img"
                        [alt]="'Photo of ' + car.fullName"
                        loading="lazy">
                 </div>
