@@ -20,7 +20,7 @@ export class YardComponent {
     { id: 'mitsubishi', name: 'Mitsubishi' },
     { id: 'nissan', name: 'Nissan' },
     { id: 'bmw', name: 'BMW' },
-    { id: 'mercedes', name: 'Mercedes-Benz' },
+    { id: 'mercedes', name: 'Mercedes' },
     { id: 'landrover', name: 'Land Rover' },
     { id: 'volkswagen', name: 'Volkswagen' },
     { id: 'audi', name: 'Audi' },
@@ -37,7 +37,7 @@ export class YardComponent {
   setFilter(filterName: string) {
     const norm = (filterName || '').toLowerCase().trim();
     if (norm === 'mercedes' || norm === 'mercedes benz' || norm === 'mercedes-benz' || norm === 'mercedesbenz') {
-      this.selectedFilter = 'Mercedes-Benz';
+      this.selectedFilter = 'Mercedes';
     } else if (norm === 'land rover' || norm === 'landrover') {
       this.selectedFilter = 'Land Rover';
     } else {
