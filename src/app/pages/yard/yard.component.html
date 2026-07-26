@@ -21,19 +21,17 @@
     <div class="filter-scroll-wrapper">
       <button class="filter-pill-btn"
               [class.active]="selectedFilter === 'All'"
-              (click)="setFilter('All')"
-              (touchstart)="onFilterTouch($event, 'All')">All</button>
+              (click)="setFilter('All')">All</button>
       @for (brand of brands; track brand.id) {
         <button class="filter-pill-btn"
                 [class.active]="selectedFilter === brand.name"
-                (click)="setFilter(brand.name)"
-                (touchstart)="onFilterTouch($event, brand.name)">
+                (click)="setFilter(brand.name)">
           {{ brand.name }}
         </button>
       }
     </div>
     <div class="filter-counter">
-      Showing {{ filteredCars.length }} of {{ cars.length }} units
+      Showing <span class="counter-num">{{ filteredCars.length }}</span> of {{ cars.length }} units
     </div>
   </div>
 

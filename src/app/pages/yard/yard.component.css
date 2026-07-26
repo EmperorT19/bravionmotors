@@ -68,13 +68,27 @@
   display: flex;
   gap: 0.8rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
-  scrollbar-width: none; /* Hide standard Firefox scrollbar */
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #161616;
   -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  width: 100%;
 }
 
 .filter-scroll-wrapper::-webkit-scrollbar {
-  display: none; /* Hide Webkit scrollbars */
+  height: 4px;
+  display: block;
+}
+
+.filter-scroll-wrapper::-webkit-scrollbar-track {
+  background: #161616;
+  border-radius: 2px;
+}
+
+.filter-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 .filter-pill-btn {
@@ -91,6 +105,9 @@
   flex-shrink: 0;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  scroll-snap-align: start;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .filter-pill-btn.active {
@@ -106,10 +123,22 @@
 
 .filter-counter {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: #666666;
+  font-size: 0.85rem;
+  color: #a0a0a0;
   letter-spacing: 0.1em;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #0d0d0d;
+  border: 1px solid #1a1a1a;
+}
+
+.filter-counter .counter-num {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 /* No Results Panel */
