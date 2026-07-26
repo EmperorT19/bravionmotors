@@ -45,6 +45,10 @@ export class YardComponent {
     }
   }
 
+  onFilterTouch(event: Event, filterName: string) {
+    this.setFilter(filterName);
+  }
+
   get filteredCars() {
     if (this.selectedFilter === 'All') {
       return this.cars;

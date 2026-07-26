@@ -19,9 +19,15 @@
   <!-- FILTER CONTROLS -->
   <div class="filter-controls-container" appAnimate="reveal-up">
     <div class="filter-scroll-wrapper">
-      <button class="filter-pill-btn" [class.active]="selectedFilter === 'All'" (click)="setFilter('All')">All</button>
+      <button class="filter-pill-btn" 
+              [class.active]="selectedFilter === 'All'" 
+              (click)="setFilter('All')"
+              (touchstart)="onFilterTouch($event, 'All')">All</button>
       @for (brand of brands; track brand.id) {
-        <button class="filter-pill-btn" [class.active]="selectedFilter === brand.name" (click)="setFilter(brand.name)">
+        <button class="filter-pill-btn" 
+                [class.active]="selectedFilter === brand.name" 
+                (click)="setFilter(brand.name)"
+                (touchstart)="onFilterTouch($event, brand.name)">
           {{ brand.name }}
         </button>
       }
@@ -34,7 +40,7 @@
   <!-- CAR INVENTORY GRID -->
   <section class="inventory-section">
     @if (groupedCarsByBrand.length === 0) {
-      <div class="no-results-message" appAnimate="reveal-up">
+      <div class="no-results-message">
         <span class="no-results-icon">📭</span>
         <h3 class="no-results-title">No vehicles found</h3>
         <p class="no-results-desc">No units match the selected criteria. Try resetting the filters.</p>
@@ -42,7 +48,7 @@
       </div>
     } @else {
       @for (brand of groupedCarsByBrand; track brand.id) {
-        <div class="brand-group-section" appAnimate="reveal-up">
+        <div class="brand-group-section">
           <div class="brand-section-header">
             <div class="underline-wrapper">
               <h2 class="brand-group-title">{{ brand.name }}</h2>
@@ -55,8 +61,7 @@
           <div class="inventory-grid">
             @for (car of brand.cars; track car.id) {
               <div class="car-card filtered-card-item" 
-                   [attr.data-brand]="car.brand" 
-                   appAnimate="reveal-up">
+                   [attr.data-brand]="car.brand">
                 
                 <div class="car-visual-wrapper">
                   <img [src]="car.img" 

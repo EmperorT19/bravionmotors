@@ -44,7 +44,7 @@
 .underline-line {
   stroke: var(--accent) !important;
   stroke-dasharray: 100;
-  stroke-dashoffset: 100;
+  stroke-dashoffset: 0;
   transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
