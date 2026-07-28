@@ -399,7 +399,7 @@ export class ConfigureComponent implements OnInit, OnDestroy {
       `Rims  : ${this.selectedRims.name}\n` +
       `Extras: ${opts}\n\n` +
       `Please confirm availability and lead time. Thank you.`;
-    return `https://wa.me/254712345678?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/254798628745?text=${encodeURIComponent(msg)}`;
   }
 }
 
