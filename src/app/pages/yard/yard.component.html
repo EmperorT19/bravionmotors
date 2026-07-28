@@ -105,7 +105,7 @@
                   <!-- Call to Action (Full width inquiry) -->
                   <div class="car-card-footer">
                     <div class="action-buttons-group">
-                      <a href="tel:+254798628745" class="inquire-btn">Inquire Details</a>
+                      <a [routerLink]="['/contact']" [queryParams]="{model: car.fullName, service: 'Car Purchase'}" class="inquire-btn">Inquire Details</a>
                     </div>
                   </div>
 

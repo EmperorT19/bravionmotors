@@ -21,6 +21,13 @@
     <div class="form-container" appAnimate="reveal-left">
       <div class="brutalist-form-box">
         <h2 class="form-title">Enquiry form</h2>
+
+        @if (redirectedNotice) {
+          <div class="redirect-notice-box">
+            <span class="notice-tag">INQUIRY FOR //</span>
+            <span class="notice-val">{{ redirectedNotice }}</span>
+          </div>
+        }
         
         @if (submitted) {
           <div class="success-message">
@@ -51,9 +58,28 @@
               <label for="service">Service needed</label>
               <select id="service" name="service" [(ngModel)]="formData.service" class="brutalist-select">
                 <option value="Car Purchase">Car Purchase</option>
-                <option value="Servicing">Servicing / Garage</option>
+                <option value="Servicing / Garage">Servicing / Garage</option>
+                <option value="Engine Overhauls">Engine Overhauls</option>
+                <option value="Suspension Tuning">Suspension Tuning</option>
+                <option value="Electrical Diagnostics">Electrical Diagnostics</option>
+                <option value="Wheel Alignment">Wheel Alignment</option>
+                <option value="Aesthetic Detailing">Aesthetic Detailing</option>
+                <option value="Routine Maintenance">Routine Maintenance</option>
+                <option value="Brake System Service">Brake System Service</option>
+                <option value="Transmission Repair">Transmission Repair</option>
+                <option value="AC & Climate Repair">AC & Climate Repair</option>
+                <option value="Pre-Purchase Inspection">Pre-Purchase Inspection</option>
+                <option value="Body & Paint Repair">Body & Paint Repair</option>
+                <option value="Exhaust System Repair">Exhaust System Repair</option>
+                <option value="Battery & Charging Service">Battery & Charging Service</option>
+                <option value="Tire Replacement & Balancing">Tire Replacement & Balancing</option>
+                <option value="Fuel System Service">Fuel System Service</option>
+                <option value="Glass & Windshield Repair">Glass & Windshield Repair</option>
+                <option value="Cooling System Repair">Cooling System Repair</option>
+                <option value="Performance ECU Tuning">Performance ECU Tuning</option>
                 <option value="Parts Inquiry">Parts Inquiry</option>
                 <option value="General">General Inquiry</option>
+                <option [value]="formData.service">{{ formData.service }}</option>
               </select>
             </div>
 

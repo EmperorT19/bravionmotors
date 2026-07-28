@@ -44,6 +44,10 @@
                 </div>
               }
             </div>
+
+            <div class="part-action-row">
+              <a [routerLink]="['/contact']" [queryParams]="{service: 'Parts Inquiry', model: part.title}" class="part-inquire-btn">Inquire / Order Part</a>
+            </div>
           </div>
           
         </div>

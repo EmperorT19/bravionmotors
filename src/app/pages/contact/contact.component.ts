@@ -23,16 +23,31 @@ export class ContactComponent implements OnInit {
   };
 
   submitted = false;
+  redirectedNotice: string | null = null;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      if (params['service']) {
-        this.formData.service = params['service'];
+      const srv = params['service'];
+      const model = params['model'] || params['car'] || params['part'];
+      const msg = params['message'];
+
+      if (srv) {
+        this.formData.service = srv;
       }
-      if (params['model']) {
-        this.formData.carModel = params['model'];
+      if (model) {
+        this.formData.carModel = model;
+      }
+      if (msg) {
+        this.formData.message = msg;
+      }
+
+      if (srv || model) {
+        const parts: string[] = [];
+        if (srv) parts.push(`Service: ${srv}`);
+        if (model) parts.push(`Model / Item: ${model}`);
+        this.redirectedNotice = parts.join(' | ');
       }
     });
   }
@@ -50,6 +65,7 @@ export class ContactComponent implements OnInit {
     // Clear form after success
     setTimeout(() => {
       this.submitted = false;
+      this.redirectedNotice = null;
       this.formData = {
         fullName: '',
         phone: '',

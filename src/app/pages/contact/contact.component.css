@@ -78,6 +78,30 @@
   letter-spacing: -0.02em;
 }
 
+.redirect-notice-box {
+  background-color: #141414;
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.notice-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+.notice-val {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
